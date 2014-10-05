@@ -6,7 +6,7 @@
 
 ## Preview
 
-![screenshot1](DLRadioButton_screenshot1.png)[screenshot2](DLRadioButton_screenshot2.png)
+![screenshot1](DLRadioButton_screenshot1.png)![screenshot2](DLRadioButton_screenshot2.png)
 
 ## Usage
 
