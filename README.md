@@ -16,11 +16,17 @@
 
 1. Put some UIButtons onto a View
 2. Change the UIButtons' type to "custom"
+
 ![change UIButton Type](change_UIButton_type.png)
+
 3. Set the UIButtons' class to "DLRadioButton"
+
 ![change UIButton Class](change_UIButton_class.png)
+
 4. Set "otherButtons" outlet
-![set otherButtons outlet](set_otherButtons_outlet.png)
+
+![set otherButtons outlet](set_otherButton
+s_outlet.png)
 
 ####To use this Pod from code:
 
