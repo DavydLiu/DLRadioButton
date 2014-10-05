@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
+		D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */; };
+		D1BE3A0719A7D263004BD3F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0619A7D263004BD3F5 /* UIKit.framework */; };
+		D1BE3A0D19A7D263004BD3F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A0B19A7D263004BD3F5 /* InfoPlist.strings */; };
+		D1BE3A0F19A7D263004BD3F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A0E19A7D263004BD3F5 /* main.m */; };
+		D1BE3A1319A7D263004BD3F5 /* DLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */; };
+		D1BE3A1519A7D263004BD3F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A1419A7D263004BD3F5 /* Images.xcassets */; };
+		D1BE3A1C19A7D264004BD3F5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */; };
+		D1BE3A1D19A7D264004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
+		D1BE3A1E19A7D264004BD3F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0619A7D263004BD3F5 /* UIKit.framework */; };
+		D1BE3A2619A7D264004BD3F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A2419A7D264004BD3F5 /* InfoPlist.strings */; };
+		D1BE3A2819A7D264004BD3F5 /* DLRadioButtonExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A2719A7D264004BD3F5 /* DLRadioButtonExampleTests.m */; };
+		D1BE3A3419A7D675004BD3F5 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A3319A7D675004BD3F5 /* DLRadioButton.m */; };
+		D1BE3A3619AB683D004BD3F5 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A3519AB683D004BD3F5 /* iPhone.storyboard */; };
+		D1BE3A3919AB7000004BD3F5 /* DLDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1BE3A1F19A7D264004BD3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1BE39F719A7D263004BD3F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1BE39FE19A7D263004BD3F5;
+			remoteInfo = DLRadioButtonExample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLRadioButtonExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1BE3A0219A7D263004BD3F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D1BE3A0619A7D263004BD3F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D1BE3A0A19A7D263004BD3F5 /* DLRadioButtonExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DLRadioButtonExample-Info.plist"; sourceTree = "<group>"; };
+		D1BE3A0C19A7D263004BD3F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1BE3A0E19A7D263004BD3F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D1BE3A1019A7D263004BD3F5 /* DLRadioButtonExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DLRadioButtonExample-Prefix.pch"; sourceTree = "<group>"; };
+		D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLAppDelegate.h; sourceTree = "<group>"; };
+		D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLAppDelegate.m; sourceTree = "<group>"; };
+		D1BE3A1419A7D263004BD3F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D1BE3A1A19A7D264004BD3F5 /* DLRadioButtonExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLRadioButtonExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D1BE3A2319A7D264004BD3F5 /* DLRadioButtonExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DLRadioButtonExampleTests-Info.plist"; sourceTree = "<group>"; };
+		D1BE3A2519A7D264004BD3F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1BE3A2719A7D264004BD3F5 /* DLRadioButtonExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLRadioButtonExampleTests.m; sourceTree = "<group>"; };
+		D1BE3A3219A7D675004BD3F5 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		D1BE3A3319A7D675004BD3F5 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		D1BE3A3519AB683D004BD3F5 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		D1BE3A3719AB7000004BD3F5 /* DLDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLDemoViewController.h; sourceTree = "<group>"; };
+		D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLDemoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1BE39FC19A7D263004BD3F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */,
+				D1BE3A0719A7D263004BD3F5 /* UIKit.framework in Frameworks */,
+				D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1BE3A1719A7D264004BD3F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A1C19A7D264004BD3F5 /* XCTest.framework in Frameworks */,
+				D1BE3A1E19A7D264004BD3F5 /* UIKit.framework in Frameworks */,
+				D1BE3A1D19A7D264004BD3F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D1BE39F619A7D263004BD3F5 = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A0819A7D263004BD3F5 /* DLRadioButtonExample */,
+				D1BE3A2119A7D264004BD3F5 /* DLRadioButtonExampleTests */,
+				D1BE3A0119A7D263004BD3F5 /* Frameworks */,
+				D1BE3A0019A7D263004BD3F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D1BE3A0019A7D263004BD3F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */,
+				D1BE3A1A19A7D264004BD3F5 /* DLRadioButtonExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1BE3A0119A7D263004BD3F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A0219A7D263004BD3F5 /* Foundation.framework */,
+				D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */,
+				D1BE3A0619A7D263004BD3F5 /* UIKit.framework */,
+				D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1BE3A0819A7D263004BD3F5 /* DLRadioButtonExample */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A3119A7D2A7004BD3F5 /* DLRadioButton */,
+				D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */,
+				D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */,
+				D1BE3A1419A7D263004BD3F5 /* Images.xcassets */,
+				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
+				D1BE3A3519AB683D004BD3F5 /* iPhone.storyboard */,
+				D1BE3A3719AB7000004BD3F5 /* DLDemoViewController.h */,
+				D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */,
+			);
+			path = DLRadioButtonExample;
+			sourceTree = "<group>";
+		};
+		D1BE3A0919A7D263004BD3F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A0A19A7D263004BD3F5 /* DLRadioButtonExample-Info.plist */,
+				D1BE3A0B19A7D263004BD3F5 /* InfoPlist.strings */,
+				D1BE3A0E19A7D263004BD3F5 /* main.m */,
+				D1BE3A1019A7D263004BD3F5 /* DLRadioButtonExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1BE3A2119A7D264004BD3F5 /* DLRadioButtonExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A2719A7D264004BD3F5 /* DLRadioButtonExampleTests.m */,
+				D1BE3A2219A7D264004BD3F5 /* Supporting Files */,
+			);
+			path = DLRadioButtonExampleTests;
+			sourceTree = "<group>";
+		};
+		D1BE3A2219A7D264004BD3F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A2319A7D264004BD3F5 /* DLRadioButtonExampleTests-Info.plist */,
+				D1BE3A2419A7D264004BD3F5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1BE3A3119A7D2A7004BD3F5 /* DLRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				D1BE3A3219A7D675004BD3F5 /* DLRadioButton.h */,
+				D1BE3A3319A7D675004BD3F5 /* DLRadioButton.m */,
+			);
+			name = DLRadioButton;
+			path = ../../DLRadioButton;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1BE39FE19A7D263004BD3F5 /* DLRadioButtonExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1BE3A2B19A7D264004BD3F5 /* Build configuration list for PBXNativeTarget "DLRadioButtonExample" */;
+			buildPhases = (
+				D1BE39FB19A7D263004BD3F5 /* Sources */,
+				D1BE39FC19A7D263004BD3F5 /* Frameworks */,
+				D1BE39FD19A7D263004BD3F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DLRadioButtonExample;
+			productName = DLRadioButtonExample;
+			productReference = D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D1BE3A1919A7D264004BD3F5 /* DLRadioButtonExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1BE3A2E19A7D264004BD3F5 /* Build configuration list for PBXNativeTarget "DLRadioButtonExampleTests" */;
+			buildPhases = (
+				D1BE3A1619A7D264004BD3F5 /* Sources */,
+				D1BE3A1719A7D264004BD3F5 /* Frameworks */,
+				D1BE3A1819A7D264004BD3F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1BE3A2019A7D264004BD3F5 /* PBXTargetDependency */,
+			);
+			name = DLRadioButtonExampleTests;
+			productName = DLRadioButtonExampleTests;
+			productReference = D1BE3A1A19A7D264004BD3F5 /* DLRadioButtonExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1BE39F719A7D263004BD3F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Xingruo Liu";
+				TargetAttributes = {
+					D1BE39FE19A7D263004BD3F5 = {
+						DevelopmentTeam = 2526SYE8N7;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
+					};
+					D1BE3A1919A7D264004BD3F5 = {
+						TestTargetID = D1BE39FE19A7D263004BD3F5;
+					};
+				};
+			};
+			buildConfigurationList = D1BE39FA19A7D263004BD3F5 /* Build configuration list for PBXProject "DLRadioButtonExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D1BE39F619A7D263004BD3F5;
+			productRefGroup = D1BE3A0019A7D263004BD3F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1BE39FE19A7D263004BD3F5 /* DLRadioButtonExample */,
+				D1BE3A1919A7D264004BD3F5 /* DLRadioButtonExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1BE39FD19A7D263004BD3F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A0D19A7D263004BD3F5 /* InfoPlist.strings in Resources */,
+				D1BE3A1519A7D263004BD3F5 /* Images.xcassets in Resources */,
+				D1BE3A3619AB683D004BD3F5 /* iPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1BE3A1819A7D264004BD3F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A2619A7D264004BD3F5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1BE39FB19A7D263004BD3F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A1319A7D263004BD3F5 /* DLAppDelegate.m in Sources */,
+				D1BE3A3919AB7000004BD3F5 /* DLDemoViewController.m in Sources */,
+				D1BE3A3419A7D675004BD3F5 /* DLRadioButton.m in Sources */,
+				D1BE3A0F19A7D263004BD3F5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1BE3A1619A7D264004BD3F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1BE3A2819A7D264004BD3F5 /* DLRadioButtonExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1BE3A2019A7D264004BD3F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1BE39FE19A7D263004BD3F5 /* DLRadioButtonExample */;
+			targetProxy = D1BE3A1F19A7D264004BD3F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D1BE3A0B19A7D263004BD3F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1BE3A0C19A7D263004BD3F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D1BE3A2419A7D264004BD3F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1BE3A2519A7D264004BD3F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1BE3A2919A7D264004BD3F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1BE3A2A19A7D264004BD3F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1BE3A2C19A7D264004BD3F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DLRadioButtonExample/DLRadioButtonExample-Prefix.pch";
+				INFOPLIST_FILE = "DLRadioButtonExample/DLRadioButtonExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D1BE3A2D19A7D264004BD3F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DLRadioButtonExample/DLRadioButtonExample-Prefix.pch";
+				INFOPLIST_FILE = "DLRadioButtonExample/DLRadioButtonExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D1BE3A2F19A7D264004BD3F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DLRadioButtonExample.app/DLRadioButtonExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DLRadioButtonExample/DLRadioButtonExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DLRadioButtonExampleTests/DLRadioButtonExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D1BE3A3019A7D264004BD3F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DLRadioButtonExample.app/DLRadioButtonExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DLRadioButtonExample/DLRadioButtonExample-Prefix.pch";
+				INFOPLIST_FILE = "DLRadioButtonExampleTests/DLRadioButtonExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1BE39FA19A7D263004BD3F5 /* Build configuration list for PBXProject "DLRadioButtonExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1BE3A2919A7D264004BD3F5 /* Debug */,
+				D1BE3A2A19A7D264004BD3F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1BE3A2B19A7D264004BD3F5 /* Build configuration list for PBXNativeTarget "DLRadioButtonExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1BE3A2C19A7D264004BD3F5 /* Debug */,
+				D1BE3A2D19A7D264004BD3F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1BE3A2E19A7D264004BD3F5 /* Build configuration list for PBXNativeTarget "DLRadioButtonExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1BE3A2F19A7D264004BD3F5 /* Debug */,
+				D1BE3A3019A7D264004BD3F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D1BE39F719A7D263004BD3F5 /* Project object */;
+}
