@@ -53,6 +53,10 @@
  Radius of selection indicator
 */
 @property (nonatomic) CGFloat indicatorRadius;
+/**
+ Whether icon on the right side
+*/
+@property (nonatomic) BOOL iconOnRight;
 
 /**
  Clear selection for all the buttons

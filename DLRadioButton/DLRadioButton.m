@@ -32,15 +32,20 @@ static CGFloat defaultStrokeWidh = 3.0;
         [self setImage:self.ButtonIcon forState:UIControlStateNormal];
         [self setImage:self.ButtonIconSelected forState:UIControlStateSelected];
     }
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, self.rightMarginWidth ? self.rightMarginWidth : defaultRightMarginWidth, 0, 0);
+    CGFloat rightMarginWidth = self.rightMarginWidth ? self.rightMarginWidth : defaultRightMarginWidth;
+    if (self.iconOnRight) {
+        self.imageEdgeInsets = UIEdgeInsetsMake(0, self.frame.size.width - (self.ButtonIcon.size.width + rightMarginWidth), 0, 0);
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.ButtonIcon.size.width, 0, rightMarginWidth + self.ButtonIcon.size.width);
+    } else {
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, rightMarginWidth, 0, 0);
+    }
     [self chainButtons];
     if(![[self allTargets] containsObject:self]) {
         [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown];
     }
 }
 
-- (UIImage*)drawIconWithSelection:(BOOL)selected
-{
+- (UIImage *)drawIconWithSelection:(BOOL)selected {
     UIColor *circleColor = self.circleColor ? self.circleColor : self.titleLabel.textColor;
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : self.titleLabel.textColor;
     CGFloat buttonSideLength = self.buttonSideLength ? self.buttonSideLength : defaultButtonSideLength;
@@ -74,8 +79,7 @@ static CGFloat defaultStrokeWidh = 3.0;
     return image;
 }
 
-- (void)chainButtons
-{
+- (void)chainButtons {
     if ([self.otherButtons count] > 0) {
         for (DLRadioButton *radioButton in self.otherButtons) {
             NSMutableArray *otherButtons = [[NSMutableArray alloc] initWithArray:self.otherButtons];
@@ -93,16 +97,14 @@ static CGFloat defaultStrokeWidh = 3.0;
 
 #pragma mark - UIView
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     [self initilizeButton];
 }
 
 #pragma mark - DLRadiobutton
 
-- (void)deselectOtherButtons
-{
+- (void)deselectOtherButtons {
     if ([self.otherButtons count] > 0) {
         for (UIButton *button in self.otherButtons) {
             [button setSelected:NO];
@@ -110,8 +112,7 @@ static CGFloat defaultStrokeWidh = 3.0;
     }
 }
 
-- (DLRadioButton *)selectedButton
-{
+- (DLRadioButton *)selectedButton {
     if (self.selected) {
         return self;
     } else {
@@ -126,8 +127,7 @@ static CGFloat defaultStrokeWidh = 3.0;
 
 #pragma mark - UIControl
 
-- (void)setSelected:(BOOL)selected
-{
+- (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     if (selected) {
         [self deselectOtherButtons];

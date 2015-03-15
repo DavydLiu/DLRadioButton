@@ -35,9 +35,9 @@
 
 #pragma mark - UIViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
     // set up button icons
     for (DLRadioButton *radioButton in self.topRadioButtons) {
         radioButton.ButtonIcon = [UIImage imageNamed:@"RadioButton"];
@@ -47,7 +47,7 @@
     // programmatically add buttons
     
     // first button
-    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 200, 200, 30)];
+    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 200, self.view.frame.size.width - 60, 30)];
     firstRadioButton.buttonSideLength = 30;
     [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
     [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -55,44 +55,39 @@
     firstRadioButton.indicatorColor = [UIColor redColor];
     firstRadioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
-    // add other buttons
+    // other buttons
     [self.view addSubview:firstRadioButton];
     NSArray *colorNames = @[@"Orange", @"Green", @"Cyon", @"Blue", @"Purple"];
     NSArray *buttonColors = @[[UIColor orangeColor], [UIColor greenColor], [UIColor cyanColor], [UIColor blueColor], [UIColor purpleColor]];
     NSInteger i = 0;
     NSMutableArray *otherButtons = [NSMutableArray new];
     for (UIColor *buttonColor in buttonColors) {
-        // customize this button
-        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240+40*i, 200, 30)];
+        // customize button
+        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240+40*i, self.view.frame.size.width - 60, 30)];
         radioButton.buttonSideLength = 30;
         [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
         [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
         radioButton.circleColor = buttonColor;
         radioButton.indicatorColor = buttonColor;
-        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        if (i > 1) {
+            // put icon on the right side
+            radioButton.iconOnRight = YES;
+            radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        } else {
+            radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        }
         [otherButtons addObject:radioButton];
         [self.view addSubview:radioButton];
         i++;
     }
+    
     firstRadioButton.otherButtons = otherButtons;
     self.buttomRadioButtons = [@[firstRadioButton] arrayByAddingObjectsFromArray:otherButtons];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
