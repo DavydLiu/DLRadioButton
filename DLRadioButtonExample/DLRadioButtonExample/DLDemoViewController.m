@@ -12,7 +12,7 @@
 @interface DLDemoViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(DLRadioButton) NSArray *topRadioButtons;
-@property (nonatomic) NSArray *buttomRadioButtons;
+@property (nonatomic) NSArray *bottomRadioButtons;
 
 @end
 
@@ -30,7 +30,7 @@
 }
 
 - (IBAction)secondButtonTapped:(id)sender {
-    [self showSelectedButton:self.buttomRadioButtons];
+    [self showSelectedButton:self.bottomRadioButtons];
 }
 
 #pragma mark - UIViewController
@@ -49,7 +49,7 @@
     // first button
     DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 200, self.view.frame.size.width - 60, 30)];
     firstRadioButton.buttonSideLength = 30;
-    [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
+    [firstRadioButton setTitle:@"Red Checkbox" forState:UIControlStateNormal];
     [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     firstRadioButton.circleColor = [UIColor redColor];
     firstRadioButton.indicatorColor = [UIColor redColor];
@@ -65,7 +65,7 @@
         // customize button
         DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240+40*i, self.view.frame.size.width - 60, 30)];
         radioButton.buttonSideLength = 30;
-        [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
+        [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Checkbox"] forState:UIControlStateNormal];
         [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
         radioButton.circleColor = buttonColor;
         radioButton.indicatorColor = buttonColor;
@@ -80,9 +80,7 @@
         [self.view addSubview:radioButton];
         i++;
     }
-    
-    firstRadioButton.otherButtons = otherButtons;
-    self.buttomRadioButtons = [@[firstRadioButton] arrayByAddingObjectsFromArray:otherButtons];
+    self.bottomRadioButtons = [@[firstRadioButton] arrayByAddingObjectsFromArray:otherButtons];
 }
 
 - (void)didReceiveMemoryWarning {
