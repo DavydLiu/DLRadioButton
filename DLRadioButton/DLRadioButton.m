@@ -92,7 +92,12 @@ static CGFloat defaultStrokeWidh = 3.0;
 
 - (void)touchDown
 {
-    [self setSelected:YES];
+    if ([self.otherButtons count] == 0) {
+        [self setSelected:!self.selected];
+    }
+    else {
+        [self setSelected:YES];
+    }
 }
 
 #pragma mark - UIView
