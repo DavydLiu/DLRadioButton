@@ -1,15 +1,9 @@
-//
-//  DLRadioButton.h
-//  DLRadioButtonExample
-//
-//  Created by Liu, Xingruo on 8/22/14.
-//
-
 #import <UIKit/UIKit.h>
 
 /**
  A hightly customizable Radio Button for iOS
 */
+IB_DESIGNABLE
 @interface DLRadioButton : UIButton
 
 /**@name Properties*/
@@ -20,48 +14,49 @@
 /**
  Image for radio button (optional)
 */
-@property (nonatomic) UIImage *ButtonIcon;
+@property (nonatomic) IBInspectable UIImage *icon;
 /**
  Image for radio button when selected (optional)
 */
-@property (nonatomic) UIImage *ButtonIconSelected;
+@property (nonatomic) IBInspectable UIImage *iconSelected;
 /**
- Height of the radio button
+ Size of the radio button
 */
-@property (nonatomic) CGFloat buttonSideLength;
+@property (nonatomic) IBInspectable CGFloat size;
 /**
  Margin width between button icon and button title
  */
-@property (nonatomic) CGFloat rightMarginWidth;
+@property (nonatomic) IBInspectable CGFloat marginWidth;
 /**
  Color of the circle button icon
 */
-@property (nonatomic) UIColor *circleColor;
+@property (nonatomic) IBInspectable UIColor *circleColor;
 /**
  Radius of the circle button icon
 */
-@property (nonatomic) CGFloat circleRadius;
+@property (nonatomic) IBInspectable CGFloat circleRadius;
 /**
  Stroke width of circle button icon
  */
-@property (nonatomic) CGFloat circleStrokeWidth;
+@property (nonatomic) IBInspectable CGFloat circleStrokeWidth;
 /**
  Color of selection indicator
 */
-@property (nonatomic) UIColor *indicatorColor;
+@property (nonatomic) IBInspectable UIColor *indicatorColor;
 /**
  Radius of selection indicator
 */
-@property (nonatomic) CGFloat indicatorRadius;
+@property (nonatomic) IBInspectable CGFloat indicatorRadius;
 /**
  Whether icon on the right side
 */
-@property (nonatomic) BOOL iconOnRight;
+@property (nonatomic) IBInspectable BOOL iconOnRight;
 
 /**
  Clear selection for all the buttons
 */
 - (void)deselectOtherButtons;
+
 /**
  @return Current selected button
 */

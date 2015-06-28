@@ -1,11 +1,3 @@
-//
-//  DLDemoViewController.m
-//  DLRadioButtonExample
-//
-//  Created by Liu, Xingruo on 8/25/14.
-//  Copyright (c) 2014 Xingruo Liu. All rights reserved.
-//
-
 #import "DLDemoViewController.h"
 #import "DLRadioButton.h"
 
@@ -38,17 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // set up button icons
-    for (DLRadioButton *radioButton in self.topRadioButtons) {
-        radioButton.ButtonIcon = [UIImage imageNamed:@"RadioButton"];
-        radioButton.ButtonIconSelected = [UIImage imageNamed:@"RadioButtonSelected"];
-    }
-    
     // programmatically add buttons
-    
     // first button
     DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 200, self.view.frame.size.width - 60, 30)];
-    firstRadioButton.buttonSideLength = 30;
+    firstRadioButton.size = 30;
     [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
     [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     firstRadioButton.circleColor = [UIColor redColor];
@@ -63,13 +48,13 @@
     NSMutableArray *otherButtons = [NSMutableArray new];
     for (UIColor *buttonColor in buttonColors) {
         // customize button
-        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240+40*i, self.view.frame.size.width - 60, 30)];
-        radioButton.buttonSideLength = 30;
+        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240 + 40 * i, self.view.frame.size.width - 60, 30)];
+        radioButton.size = 30;
         [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
         [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
         radioButton.circleColor = buttonColor;
         radioButton.indicatorColor = buttonColor;
-        if (i > 1) {
+        if (i == 1 || i == 2) {
             // put icon on the right side
             radioButton.iconOnRight = YES;
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -83,11 +68,6 @@
     
     firstRadioButton.otherButtons = otherButtons;
     self.buttomRadioButtons = [@[firstRadioButton] arrayByAddingObjectsFromArray:otherButtons];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

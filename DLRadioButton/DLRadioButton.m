@@ -1,14 +1,7 @@
-//
-//  DLRadioButton.m
-//  DLRadioButtonExample
-//
-//  Created by Liu, Xingruo on 8/22/14.
-//
-
 #import "DLRadioButton.h"
 
-static CGFloat defaultButtonSideLength = 30.0;
-static CGFloat defaultRightMarginWidth = 5.0;
+static CGFloat defaultSize = 30.0;
+static CGFloat defaultMarginWidth = 5.0;
 static CGFloat defaultIndicatorRadius = 5.0;
 static CGFloat defaultCircleRadius = 11;
 static CGFloat defaultStrokeWidh = 3.0;
@@ -21,26 +14,26 @@ static CGFloat defaultStrokeWidh = 3.0;
 
 #pragma mark - Helpers
 
-- (void)initilizeButton {
-    if (!self.ButtonIcon) {
-        self.ButtonIcon = [self drawIconWithSelection:NO];
+- (void)drawButton {
+    if (!self.icon) {
+        self.icon = [self drawIconWithSelection:NO];
     }
-    if (!self.ButtonIconSelected) {
-        self.ButtonIconSelected = [self drawIconWithSelection:YES];
+    if (!self.iconSelected) {
+        self.iconSelected = [self drawIconWithSelection:YES];
     }
     if (![self imageForState:UIControlStateNormal] || ![self imageForState:UIControlStateSelected]) {
-        [self setImage:self.ButtonIcon forState:UIControlStateNormal];
-        [self setImage:self.ButtonIconSelected forState:UIControlStateSelected];
+        [self setImage:self.icon forState:UIControlStateNormal];
+        [self setImage:self.iconSelected forState:UIControlStateSelected];
     }
-    CGFloat rightMarginWidth = self.rightMarginWidth ? self.rightMarginWidth : defaultRightMarginWidth;
+    CGFloat marginWidth = self.marginWidth ? self.marginWidth : defaultMarginWidth;
     if (self.iconOnRight) {
-        self.imageEdgeInsets = UIEdgeInsetsMake(0, self.frame.size.width - (self.ButtonIcon.size.width + rightMarginWidth), 0, 0);
-        self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.ButtonIcon.size.width, 0, rightMarginWidth + self.ButtonIcon.size.width);
+        self.imageEdgeInsets = UIEdgeInsetsMake(0, self.frame.size.width - self.icon.size.width, 0, 0);
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.icon.size.width, 0, marginWidth + self.icon.size.width);
     } else {
-        self.titleEdgeInsets = UIEdgeInsetsMake(0, rightMarginWidth, 0, 0);
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
     }
     [self chainButtons];
-    if(![[self allTargets] containsObject:self]) {
+    if (![[self allTargets] containsObject:self]) {
         [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown];
     }
 }
@@ -48,26 +41,26 @@ static CGFloat defaultStrokeWidh = 3.0;
 - (UIImage *)drawIconWithSelection:(BOOL)selected {
     UIColor *circleColor = self.circleColor ? self.circleColor : self.titleLabel.textColor;
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : self.titleLabel.textColor;
-    CGFloat buttonSideLength = self.buttonSideLength ? self.buttonSideLength : defaultButtonSideLength;
+    CGFloat size = self.size ? self.size : defaultSize;
     CGFloat indicatorRadius = self.indicatorRadius ? self.indicatorRadius : defaultIndicatorRadius;
     CGFloat circleRadius = self.circleRadius ? self.circleRadius : defaultCircleRadius;
     CGFloat strokeWidth = self.circleStrokeWidth ? self.circleStrokeWidth : defaultStrokeWidh;
     
-    CGRect rect = CGRectMake(0.0, 0.0, buttonSideLength, buttonSideLength);
+    CGRect rect = CGRectMake(0.0, 0.0, size, size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     UIGraphicsPushContext(context);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0);
     
     if (selected) {
-        // indicator Drawing
-        UIBezierPath* indicatorPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(buttonSideLength/2 - indicatorRadius, buttonSideLength/2 - indicatorRadius, indicatorRadius*2, indicatorRadius*2)];
+        // draw indicator
+        UIBezierPath* indicatorPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(size/2 - indicatorRadius, size/2 - indicatorRadius, indicatorRadius*2, indicatorRadius*2)];
         [indicatorColor setFill];
         [indicatorPath fill];
         CGContextAddPath(context, indicatorPath.CGPath);
     }
     
-    // circle Drawing
-    UIBezierPath* circlePath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(buttonSideLength/2 - circleRadius, buttonSideLength/2 - circleRadius, circleRadius*2, circleRadius*2)];
+    // draw circle
+    UIBezierPath* circlePath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(size/2 - circleRadius, size/2 - circleRadius, circleRadius*2, circleRadius*2)];
     [circleColor setStroke];
     circlePath.lineWidth = strokeWidth;
     [circlePath stroke];
@@ -90,16 +83,12 @@ static CGFloat defaultStrokeWidh = 3.0;
     }
 }
 
-- (void)touchDown
-{
+- (void)touchDown {
     [self setSelected:YES];
 }
 
-#pragma mark - UIView
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-    [self initilizeButton];
+- (void)prepareForInterfaceBuilder {
+    [self drawButton];
 }
 
 #pragma mark - DLRadiobutton
@@ -132,6 +121,13 @@ static CGFloat defaultStrokeWidh = 3.0;
     if (selected) {
         [self deselectOtherButtons];
     }
+}
+
+#pragma mark - UIView
+
+- (void)drawRect:(CGRect)rect {
+    [super drawRect:rect];
+    [self drawButton];
 }
 
 @end

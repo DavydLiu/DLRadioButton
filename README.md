@@ -6,80 +6,35 @@
 
 ## Preview
 
-![screenshot1](DLRadioButton_screenshot1.png)![screenshot2](DLRadioButton_screenshot2.png)
+![screenshot1](DLRadioButton_screenshot1.png) ![screenshot2](DLRadioButton_screenshot2.png)
 
 ## Usage
 
 ####To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-####To use this Pod from interface builder:
+####To add radio buttons in interface builder:
 
-* Put some UIButtons onto a View
-* Change the UIButtons' type to "custom"
+1.  Put some UIButtons onto a View and change the UIButtons' type to "custom".
 
-![change UIButton Type](change_UIButton_type.png)
+	![change UIButton Type](change_UIButton_type.png)
 
-* Set the UIButtons' class to "DLRadioButton"
+2.  Set the UIButtons' class to "DLRadioButton".
 
-![change UIButton Class](change_UIButton_class.png)
+	![change UIButton Class](change_UIButton_class.png)
 
-* Set "otherButtons" outlet
+3.	Set "otherButtons" outlet.
 
-![set otherButtons outlet](set_otherButtons_outlet.png)
-
-####To use this Pod from code:
-
-    #import "DLRadioButton.h"
-
-    // set up button icons
-    for (DLRadioButton *radioButton in self.topRadioButtons) {
-        radioButton.ButtonIcon = [UIImage imageNamed:@"RadioButton"];
-        radioButton.ButtonIconSelected = [UIImage imageNamed:@"RadioButtonSelected"];
-    }
-    
-    // programmatically add buttons
-    
-    // first button
-    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 200, self.view.frame.size.width - 60, 30)];
-    firstRadioButton.buttonSideLength = 30;
-    [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
-    [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    firstRadioButton.circleColor = [UIColor redColor];
-    firstRadioButton.indicatorColor = [UIColor redColor];
-    firstRadioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    
-    // other buttons
-    [self.view addSubview:firstRadioButton];
-    NSArray *colorNames = @[@"Orange", @"Green", @"Cyon", @"Blue", @"Purple"];
-    NSArray *buttonColors = @[[UIColor orangeColor], [UIColor greenColor], [UIColor cyanColor], [UIColor blueColor], [UIColor purpleColor]];
-    NSInteger i = 0;
-    NSMutableArray *otherButtons = [NSMutableArray new];
-    for (UIColor *buttonColor in buttonColors) {
-        // customize button
-        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 240+40*i, self.view.frame.size.width - 60, 30)];
-        radioButton.buttonSideLength = 30;
-        [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
-        [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
-        radioButton.circleColor = buttonColor;
-        radioButton.indicatorColor = buttonColor;
-        if (i > 1) {
-            // put icon on the right side
-            radioButton.iconOnRight = YES;
-            radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        } else {
-            radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        }
-        [otherButtons addObject:radioButton];
-        [self.view addSubview:radioButton];
-        i++;
-    }
-    
-    firstRadioButton.otherButtons = otherButtons;
+	![set otherButtons outlet](set_otherButtons_outlet.png)
 
 ####To customize DLRadiobutton:
 
-There are a bunch of properties that you can set for your Radio Button, please use the following picture for reference:
-![DLRadioButton](DLRadioButton.png)
+*	Simply set properties directly in Interface Builder.
+
+	![design DLButton](design_DLRadioButton.png)
+
+*	Property reference:
+	
+	![DLRadioButton](DLRadioButton.png)
 
 ## Requirements
 
@@ -94,7 +49,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Xingruo Liu, xingruo.liu@gmail.com
+David Liu, xingruo.liu@gmail.com
 
 ## License
 
