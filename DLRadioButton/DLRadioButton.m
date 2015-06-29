@@ -1,10 +1,10 @@
 #import "DLRadioButton.h"
 
-static CGFloat defaultSize = 30.0;
-static CGFloat defaultMarginWidth = 5.0;
-static CGFloat defaultIndicatorRadius = 5.0;
-static CGFloat defaultCircleRadius = 11;
-static CGFloat defaultStrokeWidh = 3.0;
+static const CGFloat defaultSize = 30.0;
+static const CGFloat defaultMarginWidth = 5.0;
+static const CGFloat defaultIndicatorRadius = 5.0;
+static const CGFloat defaultCircleRadius = 11;
+static const CGFloat defaultStrokeWidh = 3.0;
 
 @interface DLRadioButton ()
 
