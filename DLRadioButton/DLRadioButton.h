@@ -8,58 +8,58 @@ IB_DESIGNABLE
 
 /**@name Properties*/
 /**
- Container for holding other related radio buttons
+ Container for holding other buttons
 */
 @property (nonatomic) IBOutletCollection(DLRadioButton) NSArray *otherButtons;
 /**
- Image for radio button (optional)
+ Image for radio button icon (optional)
 */
 @property (nonatomic) IBInspectable UIImage *icon;
 /**
- Image for radio button when selected (optional)
+ Image for radio button icon when selected (optional)
 */
 @property (nonatomic) IBInspectable UIImage *iconSelected;
 /**
- Size of the radio button
+ Size of icon
 */
-@property (nonatomic) IBInspectable CGFloat size;
+@property (nonatomic) IBInspectable CGFloat iconSize;
 /**
- Margin width between button icon and button title
+ Color of icon
  */
-@property (nonatomic) IBInspectable CGFloat marginWidth;
+@property (nonatomic) IBInspectable UIColor *iconColor;
 /**
- Color of the circle button icon
-*/
-@property (nonatomic) IBInspectable UIColor *circleColor;
-/**
- Radius of the circle button icon
-*/
-@property (nonatomic) IBInspectable CGFloat circleRadius;
-/**
- Stroke width of circle button icon
+ Stroke width of icon
  */
-@property (nonatomic) IBInspectable CGFloat circleStrokeWidth;
+@property (nonatomic) IBInspectable CGFloat iconStrokeWidth;
+/**
+ Size of selection indicator
+ */
+@property (nonatomic) IBInspectable CGFloat indicatorSize;
 /**
  Color of selection indicator
 */
 @property (nonatomic) IBInspectable UIColor *indicatorColor;
 /**
- Radius of selection indicator
-*/
-@property (nonatomic) IBInspectable CGFloat indicatorRadius;
+ Margin width between icon and title
+ */
+@property (nonatomic) IBInspectable CGFloat marginWidth;
 /**
  Whether icon on the right side
 */
-@property (nonatomic) IBInspectable BOOL iconOnRight;
-
+@property (nonatomic) IBInspectable BOOL isIconOnRight;
 /**
- Clear selection for all the buttons
+ Whether use square icon
 */
-- (void)deselectOtherButtons;
+@property (nonatomic) IBInspectable BOOL isIconSquare;
 
 /**
  @return Current selected button
-*/
+ */
 - (DLRadioButton *)selectedButton;
+
+/**
+ Clear selection for other buttons
+*/
+- (void)deselectOtherButtons;
 
 @end

@@ -6,11 +6,9 @@
 
 ## Preview
 
-![screenshot1](DLRadioButton_screenshot1.png) ![screenshot2](DLRadioButton_screenshot2.png)
+![screenshot1](DLRadioButton_screenshot1.png)
 
 ## Usage
-
-####To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ####To add radio buttons in interface builder:
 
@@ -35,6 +33,8 @@
 *	Property reference:
 	
 	![DLRadioButton](DLRadioButton.png)
+	
+####To add raido buttons programmatically, please refer to example project.
 
 ## Requirements
 
@@ -49,8 +49,8 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-David Liu, xingruo.liu@gmail.com
+David Liu. For help or any qeustions, feel free to reach me out at [@DavydLiu](https://twitter.com/DavydLiu).
 
 ## License
 
-DLRadioButton is available under the MIT license. See the LICENSE file for more info.
+DLRadioButton is available under the MIT license.
