@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63C933161B48EB1C009DD715 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C933151B48EB1C009DD715 /* Images.xcassets */; };
 		D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
 		D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */; };
 		D1BE3A0719A7D263004BD3F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0619A7D263004BD3F5 /* UIKit.framework */; };
 		D1BE3A0D19A7D263004BD3F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A0B19A7D263004BD3F5 /* InfoPlist.strings */; };
 		D1BE3A0F19A7D263004BD3F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A0E19A7D263004BD3F5 /* main.m */; };
 		D1BE3A1319A7D263004BD3F5 /* DLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */; };
-		D1BE3A1519A7D263004BD3F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BE3A1419A7D263004BD3F5 /* Images.xcassets */; };
 		D1BE3A1C19A7D264004BD3F5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */; };
 		D1BE3A1D19A7D264004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
 		D1BE3A1E19A7D264004BD3F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0619A7D263004BD3F5 /* UIKit.framework */; };
@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63C933151B48EB1C009DD715 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLRadioButtonExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BE3A0219A7D263004BD3F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,7 +46,6 @@
 		D1BE3A1019A7D263004BD3F5 /* DLRadioButtonExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DLRadioButtonExample-Prefix.pch"; sourceTree = "<group>"; };
 		D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLAppDelegate.h; sourceTree = "<group>"; };
 		D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLAppDelegate.m; sourceTree = "<group>"; };
-		D1BE3A1419A7D263004BD3F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1BE3A1A19A7D264004BD3F5 /* DLRadioButtonExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLRadioButtonExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D1BE3A2319A7D264004BD3F5 /* DLRadioButtonExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DLRadioButtonExampleTests-Info.plist"; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				D1BE3A3119A7D2A7004BD3F5 /* DLRadioButton */,
 				D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */,
 				D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */,
-				D1BE3A1419A7D263004BD3F5 /* Images.xcassets */,
+				63C933151B48EB1C009DD715 /* Images.xcassets */,
 				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
 				D1BE3A3519AB683D004BD3F5 /* iPhone.storyboard */,
 				D1BE3A3719AB7000004BD3F5 /* DLDemoViewController.h */,
@@ -250,8 +250,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C933161B48EB1C009DD715 /* Images.xcassets in Resources */,
 				D1BE3A0D19A7D263004BD3F5 /* InfoPlist.strings in Resources */,
-				D1BE3A1519A7D263004BD3F5 /* Images.xcassets in Resources */,
 				D1BE3A3619AB683D004BD3F5 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

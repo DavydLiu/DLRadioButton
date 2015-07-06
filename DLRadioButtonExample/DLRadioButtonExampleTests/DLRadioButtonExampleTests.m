@@ -1,34 +1,44 @@
-//
-//  DLRadioButtonExampleTests.m
-//  DLRadioButtonExampleTests
-//
-//  Created by Liu, Xingruo on 8/22/14.
-//  Copyright (c) 2014 Xingruo Liu. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
+#import "DLRadioButton.h"
 
 @interface DLRadioButtonExampleTests : XCTestCase
+
+@property DLRadioButton *firstButton;
+@property DLRadioButton *secondButton;
+@property DLRadioButton *thirdButton;
 
 @end
 
 @implementation DLRadioButtonExampleTests
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.firstButton = [[DLRadioButton alloc] init];
+    self.secondButton = [[DLRadioButton alloc] init];
+    self.thirdButton = [[DLRadioButton alloc] init];
+    self.firstButton.otherButtons = @[self.secondButton, self.thirdButton];
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown {
+    self.firstButton = nil;
+    self.secondButton = nil;
+    self.thirdButton = nil;
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testButtonSelection {
+    [self.firstButton sendActionsForControlEvents:UIControlEventTouchDown];
+    [self.secondButton sendActionsForControlEvents:UIControlEventTouchDown];
+    XCTAssertEqualObjects([self.firstButton selectedButton], self.secondButton);
+    XCTAssertEqualObjects([self.secondButton selectedButton], self.secondButton);
+    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchDown];
+    XCTAssertEqualObjects([self.secondButton selectedButton], self.thirdButton);
+}
+
+- (void)testButtonDeselection {
+    [self.secondButton sendActionsForControlEvents:UIControlEventTouchDown];
+    [self.firstButton deselectOtherButtons];
+    XCTAssertNil([self.firstButton selectedButton]);
 }
 
 @end
