@@ -10,6 +10,9 @@
 
 ## Usage
 
+####To install:
+*	Put `DLRadioButton.h` and `DLRadiobutton.m` in your project, or add `Pod DLRadioButton` to your Podfile.
+
 ####To add radio buttons in interface builder:
 
 1.  Put some UIButtons onto a View and change the UIButtons' type to "custom".
@@ -38,14 +41,7 @@
 
 ## Requirements
 
-ARC
-
-## 
-
-DLRadioButton is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-    pod "DLRadioButton"
+ARC, iOS 6.0
 
 ## Author
 
