@@ -1,10 +1,13 @@
 #import "DLRadioButton.h"
 
-static const CGFloat defaulIconSize = 15.0;
-static const CGFloat defaultMarginWidth = 5.0;
+static const CGFloat kDefaulIconSize = 15.0;
+static const CGFloat kDefaultMarginWidth = 5.0;
+static NSString *const kGeneratedIconName = @"Generated Icon";
 
 @interface DLRadioButton()
+
 @property BOOL isChaining;
+
 @end
 
 @implementation DLRadioButton
@@ -37,13 +40,13 @@ static const CGFloat defaultMarginWidth = 5.0;
 #pragma mark - Helpers
 
 - (void)drawButton {
-    if (!self.icon) {
+    if (!self.icon || [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
         self.icon = [self drawIconWithSelection:NO];
     }
-    if (!self.iconSelected) {
+    if (!self.iconSelected || [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
         self.iconSelected = [self drawIconWithSelection:YES];
     }
-    CGFloat marginWidth = self.marginWidth ? self.marginWidth : defaultMarginWidth;
+    CGFloat marginWidth = self.marginWidth ? self.marginWidth : kDefaultMarginWidth;
     if (self.isIconOnRight) {
         self.imageEdgeInsets = UIEdgeInsetsMake(0, self.frame.size.width - self.icon.size.width, 0, 0);
         self.titleEdgeInsets = UIEdgeInsetsMake(0, -self.icon.size.width, 0, marginWidth + self.icon.size.width);
@@ -53,9 +56,10 @@ static const CGFloat defaultMarginWidth = 5.0;
 }
 
 - (UIImage *)drawIconWithSelection:(BOOL)selected {
-    UIColor *iconColor = self.iconColor ? self.iconColor : self.titleLabel.textColor;
-    UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : self.titleLabel.textColor;
-    CGFloat iconSize = self.iconSize ? self.iconSize : defaulIconSize;
+    UIColor *defaulColor = selected ? [self titleColorForState:UIControlStateSelected | UIControlStateHighlighted] : [self titleColorForState:UIControlStateNormal];
+    UIColor *iconColor = self.iconColor ? self.iconColor : defaulColor;
+    UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : defaulColor;
+    CGFloat iconSize = self.iconSize ? self.iconSize : kDefaulIconSize;
     CGFloat iconStrokeWidth = self.iconStrokeWidth ? self.iconStrokeWidth : iconSize / 9;
     CGFloat indicatorSize = self.indicatorSize ? self.indicatorSize : iconSize * 0.5;
     
@@ -94,11 +98,14 @@ static const CGFloat defaultMarginWidth = 5.0;
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsPopContext();
     UIGraphicsEndImageContext();
+    
+    image.accessibilityIdentifier = kGeneratedIconName;
     return image;
 }
 
 - (void)touchDown {
     [self setSelected:YES];
+    [self setNeedsDisplay];
 }
 
 - (void)initRadioButton {
@@ -115,6 +122,7 @@ static const CGFloat defaultMarginWidth = 5.0;
 - (void)deselectOtherButtons {
     for (UIButton *button in self.otherButtons) {
         [button setSelected:NO];
+        [button setNeedsDisplay];
     }
 }
 
@@ -129,6 +137,24 @@ static const CGFloat defaultMarginWidth = 5.0;
         }
         return nil;
     }
+}
+
+#pragma mark - UIButton
+
+- (UIColor *)titleColorForState:(UIControlState)state {
+    UIColor *normalColor = [super titleColorForState:UIControlStateNormal];
+    if (state == (UIControlStateSelected | UIControlStateHighlighted)) {
+        UIColor *selectedOrHighlightedColor = [super titleColorForState:UIControlStateSelected | UIControlStateHighlighted];
+        if (selectedOrHighlightedColor == normalColor || selectedOrHighlightedColor == nil) {
+            selectedOrHighlightedColor = [super titleColorForState:UIControlStateSelected];
+        }
+        if (selectedOrHighlightedColor == normalColor || selectedOrHighlightedColor == nil) {
+            selectedOrHighlightedColor = [super titleColorForState:UIControlStateHighlighted];
+        }
+        [self setTitleColor:selectedOrHighlightedColor forState:UIControlStateSelected | UIControlStateHighlighted];
+    }
+    
+    return [super titleColorForState:state];
 }
 
 #pragma mark - UIControl

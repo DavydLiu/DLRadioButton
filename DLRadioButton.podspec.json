@@ -17,7 +17,7 @@
 	},
 	"source": {
 		"git": "https://github.com/DavydLiu/DLRadioButton.git",
-		"tag": "1.3.1"
+		"tag": "1.3.2"
 	},
 	"source_files": "DLRadioButton/**/*.{h,m}",
 	"exclude_files": "Classes/Exclude",
