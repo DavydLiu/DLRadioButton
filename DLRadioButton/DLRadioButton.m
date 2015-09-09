@@ -108,7 +108,7 @@ static NSString *const kGeneratedIconName = @"Generated Icon";
 }
 
 - (void)initRadioButton {
-    [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown];
+    [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)prepareForInterfaceBuilder {
