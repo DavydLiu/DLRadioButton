@@ -45,7 +45,7 @@ ARC, iOS 6.0
 
 ## Author
 
-David Liu. For help or any qeustions, feel free to reach me out at [@DavydLiu](https://twitter.com/DavydLiu).
+David Liu. For help or any qeustions, feel free to [open an issue](https://github.com/DavydLiu/DLRadioButton/issues/new).
 
 ## License
 
