@@ -27,11 +27,11 @@
 }
 
 - (void)testButtonSelection {
-    [self.firstButton sendActionsForControlEvents:UIControlEventTouchDown];
-    [self.secondButton sendActionsForControlEvents:UIControlEventTouchDown];
+    [self.firstButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [self.secondButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     XCTAssertEqualObjects([self.firstButton selectedButton], self.secondButton);
     XCTAssertEqualObjects([self.secondButton selectedButton], self.secondButton);
-    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchDown];
+    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     XCTAssertEqualObjects([self.secondButton selectedButton], self.thirdButton);
 }
 
