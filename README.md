@@ -11,7 +11,7 @@
 ## Usage
 
 ####To install:
-*	Put `DLRadioButton.h` and `DLRadiobutton.m` in your project, or add `Pod DLRadioButton` to your Podfile.
+*	Put `DLRadioButton.h` and `DLRadiobutton.m` in your project, or add `pod DLRadioButton` to your Podfile.
 
 ####To add radio buttons in interface builder:
 
