@@ -5,7 +5,13 @@
 #pragma mark - Helpers
 
 - (IBAction)logSelectedButton:(DLRadioButton *)radiobutton {
-    NSLog(@"%@ is selected.\n", radiobutton.selectedButton.titleLabel.text);
+    if (radiobutton.isMultipleSelectionEnabled) {
+        for (DLRadioButton *button in radiobutton.selectedButtons) {
+            NSLog(@"%@ is selected.\n", button.titleLabel.text);
+        }
+    } else {
+        NSLog(@"%@ is selected.\n", radiobutton.selectedButton.titleLabel.text);
+    }
 }
 
 #pragma mark - UIViewController
