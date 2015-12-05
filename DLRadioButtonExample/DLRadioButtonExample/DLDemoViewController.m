@@ -1,5 +1,4 @@
 #import "DLDemoViewController.h"
-#import "DLRadioButton.h"
 
 @implementation DLDemoViewController
 
@@ -13,6 +12,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // enable multiple selection for water, beer and wine buttons.
+    self.waterButton.multipleSelectionEnabled = YES;
     
     // programmatically add buttons
     // first button
@@ -40,11 +42,11 @@
         radioButton.iconColor = buttonColor;
         radioButton.indicatorColor = buttonColor;
         if (i % 2 == 0) {
-            radioButton.isIconSquare = YES;
+            radioButton.iconSquare = YES;
         }
         if (i > 0) {
             // put icon on the right side
-            radioButton.isIconOnRight = YES;
+            radioButton.iconOnRight = YES;
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         } else {
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

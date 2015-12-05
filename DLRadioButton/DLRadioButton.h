@@ -43,14 +43,14 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable CGFloat marginWidth;
 
 /**
- Whether icon on the right side.
+ Whether icon on the right side, default is NO.
 */
-@property (nonatomic) IBInspectable BOOL isIconOnRight;
+@property (nonatomic, getter=isIconOnRight) IBInspectable BOOL iconOnRight;
 
 /**
- Whether use square icon.
+ Whether use square icon, default is NO.
 */
-@property (nonatomic) IBInspectable BOOL isIconSquare;
+@property (nonatomic, getter=isIconSquare) IBInspectable BOOL iconSquare;
 
 /**
  Image for radio button icon (optional).
@@ -63,12 +63,22 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable UIImage *iconSelected;
 
 /**
- @return Current selected button in same group.
+ Whether enable multiple selection, default is NO.
+ */
+@property (nonatomic, getter=isMultipleSelectionEnabled) BOOL multipleSelectionEnabled;
+
+/**
+ @return Selected button in same group.
  */
 - (DLRadioButton *)selectedButton;
 
 /**
- Clear selection for other buttons in in same group.
+ @return Selected buttons in same group, use it only if multiple selection is enabled.
+ */
+- (NSArray *)selectedButtons;
+
+/**
+ Clears selection for other buttons in in same group.
 */
 - (void)deselectOtherButtons;
 
