@@ -69,4 +69,15 @@
     XCTAssertFalse([[self.secondButton selectedButtons] containsObject:self.thirdButton]);
 }
 
+- (void)testButtonsGroupModifingPerformance {
+    NSMutableArray *otherButtons = [[NSMutableArray alloc] initWithCapacity:999];
+    for (int i = 0; i < 1000; i++) {
+        DLRadioButton *radioButton = [[DLRadioButton alloc] init];
+        [otherButtons addObject:radioButton];
+    }
+    [self measureBlock:^{
+        self.firstButton.otherButtons = otherButtons;
+    }];
+}
+
 @end

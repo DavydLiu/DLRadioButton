@@ -47,7 +47,7 @@
 		D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLAppDelegate.h; sourceTree = "<group>"; };
 		D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLAppDelegate.m; sourceTree = "<group>"; };
 		D1BE3A1A19A7D264004BD3F5 /* DLRadioButtonExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DLRadioButtonExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D1BE3A1B19A7D264004BD3F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D1BE3A2319A7D264004BD3F5 /* DLRadioButtonExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DLRadioButtonExampleTests-Info.plist"; sourceTree = "<group>"; };
 		D1BE3A2519A7D264004BD3F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1BE3A2719A7D264004BD3F5 /* DLRadioButtonExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLRadioButtonExampleTests.m; sourceTree = "<group>"; };
@@ -430,7 +430,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DLRadioButtonExample.app/DLRadioButtonExample";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -453,7 +452,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DLRadioButtonExample.app/DLRadioButtonExample";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);

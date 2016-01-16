@@ -3,27 +3,22 @@
 static const CGFloat kDefaulIconSize = 15.0;
 static const CGFloat kDefaultMarginWidth = 5.0;
 static NSString *const kGeneratedIconName = @"Generated Icon";
-
-@interface DLRadioButton()
-
-@property BOOL isChaining;
-
-@end
+static BOOL _groupModifing = NO;
 
 @implementation DLRadioButton
 
 - (void)setOtherButtons:(NSArray *)otherButtons {
-    if (!self.isChaining) {
-        _otherButtons = otherButtons;
-        self.isChaining = YES;
-        for (DLRadioButton *radioButton in self.otherButtons) {
-            NSMutableArray *otherButtons = [[NSMutableArray alloc] initWithArray:self.otherButtons];
-            [otherButtons addObject:self];
-            [otherButtons removeObject:radioButton];
-            [radioButton setOtherButtons:[otherButtons copy]];
+    if (![DLRadioButton isGroupModifing]) {
+        [DLRadioButton groupModifing:YES];
+        for (DLRadioButton *radioButton in otherButtons) {
+            NSMutableArray *otherButtonsForCurrentButton = [[NSMutableArray alloc] initWithArray:otherButtons];
+            [otherButtonsForCurrentButton addObject:self];
+            [otherButtonsForCurrentButton removeObject:radioButton];
+            [radioButton setOtherButtons:[otherButtonsForCurrentButton copy]];
         }
-        self.isChaining = NO;
+        [DLRadioButton groupModifing:NO];
     }
+    _otherButtons = otherButtons;
 }
 
 - (void)setIcon:(UIImage *)icon {
@@ -38,14 +33,14 @@ static NSString *const kGeneratedIconName = @"Generated Icon";
 }
 
 - (void)setMultipleSelectionEnabled:(BOOL)multipleSelectionEnabled {
-    if (!self.isChaining) {
-        self.isChaining = YES;
-        _multipleSelectionEnabled = multipleSelectionEnabled;
+    if (![DLRadioButton isGroupModifing]) {
+        [DLRadioButton groupModifing:YES];
         for (DLRadioButton *radioButton in self.otherButtons) {
             radioButton.multipleSelectionEnabled = multipleSelectionEnabled;
         }
-        self.isChaining = NO;
+        [DLRadioButton groupModifing:NO];
     }
+    _multipleSelectionEnabled = multipleSelectionEnabled;
 }
 
 #pragma mark - Helpers
@@ -128,6 +123,14 @@ static NSString *const kGeneratedIconName = @"Generated Icon";
 }
 
 #pragma mark - DLRadiobutton
+
++ (void)groupModifing:(BOOL)chaining {
+    _groupModifing = chaining;
+}
+
++ (BOOL)isGroupModifing {
+    return _groupModifing;
+}
 
 - (void)deselectOtherButtons {
     for (UIButton *button in self.otherButtons) {
