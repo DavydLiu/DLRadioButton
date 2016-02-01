@@ -24,7 +24,7 @@
     
     // programmatically add buttons
     // first button
-    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 350, self.view.frame.size.width - 60, 15)];
+    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 131, 350, 262, 17)];
     firstRadioButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
     [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -35,13 +35,13 @@
     [self.view addSubview:firstRadioButton];
     
     // other buttons
-    NSArray *colorNames = @[@"Orange", @"Blue", @"Purple"];
-    NSArray *buttonColors = @[[UIColor orangeColor], [UIColor blueColor], [UIColor purpleColor]];
+    NSArray *colorNames = @[@"Brown", @"Orange", @"Green", @"Blue", @"Purple"];
+    NSArray *buttonColors = @[[UIColor brownColor], [UIColor orangeColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
     NSInteger i = 0;
     NSMutableArray *otherButtons = [NSMutableArray new];
     for (UIColor *buttonColor in buttonColors) {
         // customize button
-        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(30, 380 + 30 * i, self.view.frame.size.width - 60, 15)];
+        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 131, 380 + 30 * i, 262, 17)];
         radioButton.titleLabel.font = [UIFont systemFontOfSize:14];
         [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
         [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
@@ -50,7 +50,7 @@
         if (i % 2 == 0) {
             radioButton.iconSquare = YES;
         }
-        if (i > 0) {
+        if (i > 1) {
             // put icon on the right side
             radioButton.iconOnRight = YES;
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -64,6 +64,10 @@
     }
     
     firstRadioButton.otherButtons = otherButtons;
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    
 }
 
 @end

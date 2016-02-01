@@ -1,7 +1,15 @@
+//
+//  DLRadioButtonTests.m
+//  DLRadioButtonTests
+//
+//  Created by David Liu on 1/30/16.
+//  Copyright © 2016 David Liu. All rights reserved.
+//
+
 #import <XCTest/XCTest.h>
 #import "DLRadioButton.h"
 
-@interface DLRadioButtonExampleTests : XCTestCase
+@interface DLRadioButtonUnitTests : XCTestCase
 
 @property DLRadioButton *firstButton;
 @property DLRadioButton *secondButton;
@@ -9,7 +17,7 @@
 
 @end
 
-@implementation DLRadioButtonExampleTests
+@implementation DLRadioButtonUnitTests
 
 - (void)setUp {
     [super setUp];
@@ -17,6 +25,7 @@
     self.secondButton = [[DLRadioButton alloc] init];
     self.thirdButton = [[DLRadioButton alloc] init];
     self.firstButton.otherButtons = @[self.secondButton, self.thirdButton];
+    
 }
 
 - (void)tearDown {
@@ -27,8 +36,8 @@
 }
 
 - (void)testButtonSelection {
-    [self.firstButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-    [self.secondButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [self.firstButton setSelected:YES];
+    [self.secondButton setSelected:YES];
     
     // selected button should be second button.
     XCTAssertEqualObjects([self.firstButton selectedButton], self.secondButton);
@@ -36,7 +45,7 @@
     XCTAssertEqualObjects([self.thirdButton selectedButton], self.secondButton);
     
     // selected button should be third button.
-    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [self.thirdButton setSelected:YES];
     XCTAssertEqualObjects([self.secondButton selectedButton], self.thirdButton);
 }
 
@@ -48,8 +57,8 @@
 
 - (void)testMultipleButtonsSelection {
     self.firstButton.multipleSelectionEnabled = YES;
-    [self.secondButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [self.secondButton setSelected:YES];
+    [self.thirdButton setSelected:YES];
     
     // selected button should return nil, once multiple selection enabled.
     XCTAssertNil([self.firstButton selectedButton]);
@@ -62,8 +71,8 @@
     XCTAssertTrue([[self.firstButton selectedButtons] containsObject:self.thirdButton]);
     
     // first and second button should be selected.
-    [self.firstButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-    [self.thirdButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    [self.firstButton setSelected:YES];
+    [self.thirdButton setSelected:YES];
     XCTAssertTrue([[self.secondButton selectedButtons] containsObject:self.firstButton]);
     XCTAssertTrue([[self.secondButton selectedButtons] containsObject:self.secondButton]);
     XCTAssertFalse([[self.secondButton selectedButtons] containsObject:self.thirdButton]);
@@ -81,3 +90,4 @@
 }
 
 @end
+
