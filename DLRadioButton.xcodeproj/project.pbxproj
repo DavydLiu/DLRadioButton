@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5D9F59BF1C618C6D00C561B4 /* DLRadioGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D9F59BD1C618C6D00C561B4 /* DLRadioGroup.h */; };
+		5D9F59C01C618C6D00C561B4 /* DLRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F59BE1C618C6D00C561B4 /* DLRadioGroup.m */; };
 		636C501E1C5D91DB008B5C96 /* DLRadioButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 636C501C1C5D91DB008B5C96 /* DLRadioButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		636C501F1C5D91DB008B5C96 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 636C501D1C5D91DB008B5C96 /* DLRadioButton.m */; };
 		636C50271C5D9315008B5C96 /* DLRadioButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636C50261C5D9315008B5C96 /* DLRadioButtonTests.m */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D9F59BD1C618C6D00C561B4 /* DLRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioGroup.h; path = DLRadioButton/DLRadioGroup.h; sourceTree = SOURCE_ROOT; };
+		5D9F59BE1C618C6D00C561B4 /* DLRadioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioGroup.m; path = DLRadioButton/DLRadioGroup.m; sourceTree = SOURCE_ROOT; };
 		634D5B5A1C5D8B0F00A3740D /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		634D5B5F1C5D8B0F00A3740D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		636C501C1C5D91DB008B5C96 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = DLRadioButton/DLRadioButton.h; sourceTree = SOURCE_ROOT; };
@@ -90,6 +94,8 @@
 			children = (
 				636C501C1C5D91DB008B5C96 /* DLRadioButton.h */,
 				636C501D1C5D91DB008B5C96 /* DLRadioButton.m */,
+				5D9F59BD1C618C6D00C561B4 /* DLRadioGroup.h */,
+				5D9F59BE1C618C6D00C561B4 /* DLRadioGroup.m */,
 			);
 			name = DLRadioButton;
 			path = Framework;
@@ -119,6 +125,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9F59BF1C618C6D00C561B4 /* DLRadioGroup.h in Headers */,
 				636C501E1C5D91DB008B5C96 /* DLRadioButton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636C501F1C5D91DB008B5C96 /* DLRadioButton.m in Sources */,
+				5D9F59C01C618C6D00C561B4 /* DLRadioGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +464,7 @@
 				63F965051C5ED24C00FFD1A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

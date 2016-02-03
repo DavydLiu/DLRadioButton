@@ -3,49 +3,26 @@
 static const CGFloat kDefaulIconSize = 15.0;
 static const CGFloat kDefaultMarginWidth = 5.0;
 static NSString *const kGeneratedIconName = @"Generated Icon";
-static BOOL _groupModifing = NO;
 
 @implementation DLRadioButton
 
-- (void)setOtherButtons:(NSArray *)otherButtons {
-    if (![DLRadioButton isGroupModifing]) {
-        [DLRadioButton groupModifing:YES];
-        for (DLRadioButton *radioButton in otherButtons) {
-            NSMutableArray *otherButtonsForCurrentButton = [[NSMutableArray alloc] initWithArray:otherButtons];
-            [otherButtonsForCurrentButton addObject:self];
-            [otherButtonsForCurrentButton removeObject:radioButton];
-            [radioButton setOtherButtons:[otherButtonsForCurrentButton copy]];
-        }
-        [DLRadioButton groupModifing:NO];
-    }
-    _otherButtons = otherButtons;
-}
-
-- (void)setIcon:(UIImage *)icon {
+- (void)setIcon:(UIImage *)icon
+{
     _icon = icon;
     [self setImage:self.icon forState:UIControlStateNormal];
 }
 
-- (void)setIconSelected:(UIImage *)iconSelected {
+- (void)setIconSelected:(UIImage *)iconSelected
+{
     _iconSelected = iconSelected;
     [self setImage:self.iconSelected forState:UIControlStateSelected];
     [self setImage:self.iconSelected forState:UIControlStateSelected | UIControlStateHighlighted];
 }
 
-- (void)setMultipleSelectionEnabled:(BOOL)multipleSelectionEnabled {
-    if (![DLRadioButton isGroupModifing]) {
-        [DLRadioButton groupModifing:YES];
-        for (DLRadioButton *radioButton in self.otherButtons) {
-            radioButton.multipleSelectionEnabled = multipleSelectionEnabled;
-        }
-        [DLRadioButton groupModifing:NO];
-    }
-    _multipleSelectionEnabled = multipleSelectionEnabled;
-}
-
 #pragma mark - Helpers
 
-- (void)drawButton {
+- (void)drawButton
+{
     if (!self.icon || [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
         self.icon = [self drawIconWithSelection:NO];
     }
@@ -61,7 +38,8 @@ static BOOL _groupModifing = NO;
     }
 }
 
-- (UIImage *)drawIconWithSelection:(BOOL)selected {
+- (UIImage *)drawIconWithSelection:(BOOL)selected
+{
     UIColor *defaulColor = selected ? [self titleColorForState:UIControlStateSelected | UIControlStateHighlighted] : [self titleColorForState:UIControlStateNormal];
     UIColor *iconColor = self.iconColor ? self.iconColor : defaulColor;
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : defaulColor;
@@ -109,66 +87,28 @@ static BOOL _groupModifing = NO;
     return image;
 }
 
-- (void)touchDown {
-    [self setSelected:YES];
+- (void)touchDown
+{
+    NSAssert(self.radioGroup != nil, @"Radio button has to be in a radio group");
+    
+    [self.radioGroup selectRadioButton:self];
 }
 
-- (void)initRadioButton {
+- (void)initRadioButton
+{
     [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)prepareForInterfaceBuilder {
+- (void)prepareForInterfaceBuilder
+{
     [self initRadioButton];
     [self drawButton];
 }
 
-#pragma mark - DLRadiobutton
-
-+ (void)groupModifing:(BOOL)chaining {
-    _groupModifing = chaining;
-}
-
-+ (BOOL)isGroupModifing {
-    return _groupModifing;
-}
-
-- (void)deselectOtherButtons {
-    for (UIButton *button in self.otherButtons) {
-        [button setSelected:NO];
-    }
-}
-
-- (DLRadioButton *)selectedButton {
-    if (!self.isMultipleSelectionEnabled) {
-        if (self.selected) {
-            return self;
-        } else {
-            for (DLRadioButton *radioButton in self.otherButtons) {
-                if (radioButton.selected) {
-                    return radioButton;
-                }
-            }
-        }
-    }
-    return nil;
-}
-
-- (NSArray *)selectedButtons {
-    NSMutableArray *selectedButtons = [[NSMutableArray alloc] init];
-    if (self.selected) {
-        [selectedButtons addObject:self];
-    }
-    for (DLRadioButton *radioButton in self.otherButtons) {
-        if (radioButton.selected) {
-            [selectedButtons addObject:radioButton];
-        }
-    }
-    return selectedButtons;
-}
-
 #pragma mark - UIButton
 
-- (UIColor *)titleColorForState:(UIControlState)state {
+- (UIColor *)titleColorForState:(UIControlState)state
+{
     UIColor *normalColor = [super titleColorForState:UIControlStateNormal];
     if (state == (UIControlStateSelected | UIControlStateHighlighted)) {
         UIColor *selectedOrHighlightedColor = [super titleColorForState:UIControlStateSelected | UIControlStateHighlighted];
@@ -184,22 +124,10 @@ static BOOL _groupModifing = NO;
     return [super titleColorForState:state];
 }
 
-#pragma mark - UIControl
-
-- (void)setSelected:(BOOL)selected {
-    if (self.isMultipleSelectionEnabled) {
-        [super setSelected:!self.isSelected];
-    } else {
-        [super setSelected:selected];
-        if (selected) {
-            [self deselectOtherButtons];
-        }
-    }
-}
-
 #pragma mark - UIView
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self initRadioButton];
@@ -207,7 +135,8 @@ static BOOL _groupModifing = NO;
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self initRadioButton];
@@ -215,9 +144,38 @@ static BOOL _groupModifing = NO;
     return self;
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect
+{
     [super drawRect:rect];
     [self drawButton];
+}
+
+- (void)willAddToRadioGroup:(DLRadioGroup *)radioGroup
+{
+    if (self.radioGroup != nil) {
+        [self.radioGroup removeRadioButton:self];
+    }
+}
+
+- (void)didAddToRadioGroup:(DLRadioGroup *)radioGroup
+{
+    _radioGroup = radioGroup;
+}
+
+- (void)removeFromRadioGroup
+{
+    if (self.radioGroup != nil) {
+        [self.radioGroup removeRadioButton:self];
+    }
+}
+
+- (void)willRemoveFromRadioGroup:(DLRadioGroup *)radioGroup
+{
+}
+
+- (void)didRemoveFromRadioGroup:(DLRadioGroup *)radioGroup
+{
+    _radioGroup = nil;
 }
 
 @end
