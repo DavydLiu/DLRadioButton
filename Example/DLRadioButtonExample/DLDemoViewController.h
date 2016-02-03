@@ -1,8 +1,10 @@
 #import <UIKit/UIKit.h>
-#import <DLRadioButton/DLRadioButton.h>
+#import "DLRadioButton.h"
 
-@interface DLDemoViewController : UIViewController
+@interface DLDemoViewController : UIViewController <DLRadioGroupDelegate>
 
-@property (weak, nonatomic) IBOutlet DLRadioButton *waterButton;
+@property (nonatomic, weak) IBOutlet DLRadioGroup *circularRadioGroup;
+@property (nonatomic, weak) IBOutlet DLRadioGroup *squareRadioGroup;
+@property (nonatomic, weak) IBOutlet DLRadioGroup *customImageRadioGroup;
 
 @end

@@ -1,6 +1,0 @@
-framework module DLRadioButton {
-  umbrella header "DLRadioButton.h"
-
-  export *
-  module * { export * }
-}

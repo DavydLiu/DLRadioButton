@@ -1,16 +1,14 @@
 #import <UIKit/UIKit.h>
 
+#import "DLRadioGroup.h"
+
 /**
  A hightly customizable Radio Button for iOS.
 */
 IB_DESIGNABLE
 @interface DLRadioButton : UIButton
 
-/**@name Properties*/
-/**
- Container for holding other buttons in same group.
-*/
-@property (nonatomic) IBOutletCollection(DLRadioButton) NSArray *otherButtons;
+@property (nonatomic, weak, readonly) DLRadioGroup *radioGroup;
 
 /**
  Size of icon, default is kDefaulIconSize.
@@ -62,24 +60,10 @@ IB_DESIGNABLE
  */
 @property (nonatomic) IBInspectable UIImage *iconSelected;
 
-/**
- Whether enable multiple selection, default is NO.
- */
-@property (nonatomic, getter=isMultipleSelectionEnabled) BOOL multipleSelectionEnabled;
-
-/**
- @return Selected button in same group.
- */
-- (DLRadioButton *)selectedButton;
-
-/**
- @return Selected buttons in same group, use it only if multiple selection is enabled.
- */
-- (NSArray *)selectedButtons;
-
-/**
- Clears selection for other buttons in in same group.
-*/
-- (void)deselectOtherButtons;
+- (void)willAddToRadioGroup:(DLRadioGroup *)radioGroup;
+- (void)didAddToRadioGroup:(DLRadioGroup *)radioGroup;
+- (void)removeFromRadioGroup;
+- (void)willRemoveFromRadioGroup:(DLRadioGroup *)radioGroup;
+- (void)didRemoveFromRadioGroup:(DLRadioGroup *)radioGroup;
 
 @end
