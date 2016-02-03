@@ -35,7 +35,7 @@
         if (i % 2 == 0) {
             radioButton.iconSquare = YES;
         }
-        if (i > 1) {
+        if (i > 2) {
             // put icon on the right side
             radioButton.iconOnRight = YES;
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -58,8 +58,14 @@
 
 - (void)dlRadioGroup:(DLRadioGroup *)radioGroup didSelect:(DLRadioButton *)radioButton {
     if (radioGroup.isMultipleSelectionEnabled) {
+        NSMutableArray *strings = [NSMutableArray new];
+        
         for (DLRadioButton *button in radioGroup.selectedRadioButtons) {
-            NSLog(@"%@ is selected.\n", button.titleLabel.text);
+            [strings addObject:button.titleLabel.text];
+        }
+        
+        if (strings.count > 0) {
+            NSLog(@"%@ %@ selected.\n", [strings componentsJoinedByString:@", "], strings.count > 1 ? @"are" : @"is");
         }
     } else {
         NSLog(@"%@ is selected.\n", radioGroup.selectedRadioButton.titleLabel.text);

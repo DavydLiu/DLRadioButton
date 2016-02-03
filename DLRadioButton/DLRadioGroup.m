@@ -36,7 +36,7 @@
     }
     
     if (self.multipleSelectionEnabled) {
-        radioButton.selected = YES;
+        radioButton.selected = !radioButton.selected;
         
     } else {
         [self deselectAllRadioButtons];
@@ -51,7 +51,7 @@
     if (self.multipleSelectionEnabled) {
         for (DLRadioButton *radioButton in self.radioButtons) {
             if (radioButton.tag == tag) {
-                radioButton.selected = YES;
+                radioButton.selected = !radioButton.selected;
                 [self fireDidSelectDelegateWithRadioButton:radioButton];
             }
         }
