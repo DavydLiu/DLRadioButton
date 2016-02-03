@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		5D9F59BF1C618C6D00C561B4 /* DLRadioGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D9F59BD1C618C6D00C561B4 /* DLRadioGroup.h */; };
+		5D9F59BF1C618C6D00C561B4 /* DLRadioGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D9F59BD1C618C6D00C561B4 /* DLRadioGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D9F59C01C618C6D00C561B4 /* DLRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F59BE1C618C6D00C561B4 /* DLRadioGroup.m */; };
 		636C501E1C5D91DB008B5C96 /* DLRadioButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 636C501C1C5D91DB008B5C96 /* DLRadioButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		636C501F1C5D91DB008B5C96 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 636C501D1C5D91DB008B5C96 /* DLRadioButton.m */; };

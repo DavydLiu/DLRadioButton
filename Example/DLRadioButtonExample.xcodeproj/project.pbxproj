@@ -7,11 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DC039311C624499004726C2 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC0392E1C624499004726C2 /* DLRadioButton.m */; };
+		5DC039321C624499004726C2 /* DLRadioGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC039301C624499004726C2 /* DLRadioGroup.m */; };
 		63C933161B48EB1C009DD715 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C933151B48EB1C009DD715 /* Images.xcassets */; };
-		63F965121C5ED7A900FFD1A2 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F965101C5ED6A100FFD1A2 /* DLRadioButton.framework */; };
-		63F9651F1C5EDC2B00FFD1A2 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9651E1C5EDC2B00FFD1A2 /* DLRadioButton.framework */; };
-		63F965201C5EDC4400FFD1A2 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9651E1C5EDC2B00FFD1A2 /* DLRadioButton.framework */; };
-		63F965211C5EDC4400FFD1A2 /* DLRadioButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63F9651E1C5EDC2B00FFD1A2 /* DLRadioButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
 		D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */; };
 		D1BE3A0719A7D263004BD3F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0619A7D263004BD3F5 /* UIKit.framework */; };
@@ -22,24 +20,12 @@
 		D1BE3A3919AB7000004BD3F5 /* DLDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		634D5B4F1C5D84FE00A3740D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				63F965211C5EDC4400FFD1A2 /* DLRadioButton.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		5DC0392D1C624499004726C2 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		5DC0392E1C624499004726C2 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		5DC0392F1C624499004726C2 /* DLRadioGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioGroup.h; sourceTree = "<group>"; };
+		5DC039301C624499004726C2 /* DLRadioGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioGroup.m; sourceTree = "<group>"; };
 		63C933151B48EB1C009DD715 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		63F965101C5ED6A100FFD1A2 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLRadioButton.framework; path = /Users/David/Dropbox/Projects/iOS/DLRadioButton/DLRadioButton.framework; sourceTree = "<absolute>"; };
-		63F9651E1C5EDC2B00FFD1A2 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = "<group>"; };
 		D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLRadioButtonExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BE3A0219A7D263004BD3F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,11 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F965201C5EDC4400FFD1A2 /* DLRadioButton.framework in Frameworks */,
 				D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */,
 				D1BE3A0719A7D263004BD3F5 /* UIKit.framework in Frameworks */,
-				63F9651F1C5EDC2B00FFD1A2 /* DLRadioButton.framework in Frameworks */,
-				63F965121C5ED7A900FFD1A2 /* DLRadioButton.framework in Frameworks */,
 				D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +55,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DC0392C1C624499004726C2 /* DLRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				5DC0392D1C624499004726C2 /* DLRadioButton.h */,
+				5DC0392E1C624499004726C2 /* DLRadioButton.m */,
+				5DC0392F1C624499004726C2 /* DLRadioGroup.h */,
+				5DC039301C624499004726C2 /* DLRadioGroup.m */,
+			);
+			name = DLRadioButton;
+			path = ../../DLRadioButton;
+			sourceTree = "<group>";
+		};
 		D1BE39F619A7D263004BD3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -92,9 +87,8 @@
 		D1BE3A0119A7D263004BD3F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				63F9651E1C5EDC2B00FFD1A2 /* DLRadioButton.framework */,
-				D1BE3A0219A7D263004BD3F5 /* Foundation.framework */,
 				D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */,
+				D1BE3A0219A7D263004BD3F5 /* Foundation.framework */,
 				D1BE3A0619A7D263004BD3F5 /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -105,11 +99,12 @@
 			children = (
 				D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */,
 				D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */,
-				63C933151B48EB1C009DD715 /* Images.xcassets */,
-				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
-				D1BE3A3519AB683D004BD3F5 /* Main.storyboard */,
 				D1BE3A3719AB7000004BD3F5 /* DLDemoViewController.h */,
 				D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */,
+				5DC0392C1C624499004726C2 /* DLRadioButton */,
+				63C933151B48EB1C009DD715 /* Images.xcassets */,
+				D1BE3A3519AB683D004BD3F5 /* Main.storyboard */,
+				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
 			);
 			path = DLRadioButtonExample;
 			sourceTree = "<group>";
@@ -135,7 +130,6 @@
 				D1BE39FB19A7D263004BD3F5 /* Sources */,
 				D1BE39FC19A7D263004BD3F5 /* Frameworks */,
 				D1BE39FD19A7D263004BD3F5 /* Resources */,
-				634D5B4F1C5D84FE00A3740D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +195,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1BE3A1319A7D263004BD3F5 /* DLAppDelegate.m in Sources */,
+				5DC039311C624499004726C2 /* DLRadioButton.m in Sources */,
 				D1BE3A3919AB7000004BD3F5 /* DLDemoViewController.m in Sources */,
+				5DC039321C624499004726C2 /* DLRadioGroup.m in Sources */,
 				D1BE3A0F19A7D263004BD3F5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
