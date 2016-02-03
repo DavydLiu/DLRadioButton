@@ -9,13 +9,7 @@
     self = [super init];
     
     if (self) {
-        if (self.radioButtons == nil) {
-            _radioButtons = [NSSet new];
-        } else {
-            for (DLRadioButton *radioButton in self.radioButtons) {
-                [self addRadioButton:radioButton];
-            }
-        }
+        self.radioButtons = [NSMutableArray new];
     }
     
     return self;
@@ -26,9 +20,7 @@
     self = [super init];
     
     if (self) {
-        for (DLRadioButton *radioButton in radioButtons) {
-            [self addRadioButton:radioButton];
-        }
+        self.radioButtons = [radioButtons mutableCopy];
     }
     
     return self;
@@ -92,21 +84,21 @@
 - (void)addRadioButton:(DLRadioButton *)radioButton
 {
     if (radioButton.radioGroup != self) {
-        NSMutableSet *newSet = [NSMutableSet setWithSet:self.radioButtons];
-        [newSet addObject:radioButton];
-        [radioButton willAddToRadioGroup:self];
-        self.radioButtons = newSet;
-        [radioButton didAddToRadioGroup:self];
+        NSInteger index = [self.radioButtons indexOfObject:radioButton];
+        
+        if (index == NSNotFound) {
+            [radioButton willAddToRadioGroup:self];
+            [self.radioButtons addObject:radioButton];
+            [radioButton didAddToRadioGroup:self];
+        }
     }
 }
 
 - (void)removeRadioButton:(DLRadioButton *)radioButton
 {
     if (radioButton.radioGroup == self) {
-        NSMutableSet *newSet = [NSMutableSet setWithSet:self.radioButtons];
-        [newSet removeObject:radioButton];
         [radioButton willRemoveFromRadioGroup:self];
-        self.radioButtons = newSet;
+        [self.radioButtons removeObject:radioButton];
         [radioButton didRemoveFromRadioGroup:self];
     }
 }
@@ -132,6 +124,17 @@
         }
     }
     return selectedButtons;
+}
+
+#pragma mark Getters and setters
+
+- (void)setRadioButtons:(NSMutableSet *)radioButtons
+{
+    _radioButtons = [NSMutableArray new];
+    
+    for (DLRadioButton *radioButton in radioButtons) {
+        [self addRadioButton:radioButton];
+    }
 }
 
 @end
