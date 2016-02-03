@@ -12,7 +12,7 @@
 @interface DLRadioGroup : NSObject
 
 @property (nonatomic, copy) IBOutletCollection(DLRadioButton) NSSet *radioButtons;
-@property (nonatomic, weak) id<DLRadioGroupDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<DLRadioGroupDelegate> delegate;
 
 /**
  Whether enable multiple selection, default is NO.
