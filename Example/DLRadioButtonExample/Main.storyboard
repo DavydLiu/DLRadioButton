@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50V-x7-gbe" customClass="DLRadioButton">
-                                <rect key="frame" x="169" y="70" width="54" height="29"/>
+                                <rect key="frame" x="169" y="70" width="54" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="BWi-tX-H0O"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qF-ig-U63" customClass="DLRadioButton">
-                                <rect key="frame" x="267" y="70" width="68" height="29"/>
+                                <rect key="frame" x="267" y="70" width="68" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="NjL-w8-BR0"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu9-86-wbv" customClass="DLRadioButton">
-                                <rect key="frame" x="360" y="70" width="71" height="29"/>
+                                <rect key="frame" x="360" y="70" width="71" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="71" id="XPU-Ph-HIC"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8S-8G-0VD" customClass="DLRadioButton">
-                                <rect key="frame" x="169" y="162" width="63" height="29"/>
+                                <rect key="frame" x="169" y="162" width="63" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="63" id="GKj-1q-Y6u"/>
                                 </constraints>
@@ -77,7 +77,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9q1-ZR-KPQ" customClass="DLRadioButton">
-                                <rect key="frame" x="274" y="162" width="55" height="29"/>
+                                <rect key="frame" x="274" y="162" width="55" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="m0V-u2-5JN"/>
                                 </constraints>
@@ -94,7 +94,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-t1-G9E" customClass="DLRadioButton">
-                                <rect key="frame" x="376" y="162" width="55" height="29"/>
+                                <rect key="frame" x="376" y="162" width="55" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="MRt-7k-Ps9"/>
                                 </constraints>
@@ -121,7 +121,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnu-1n-bXK" customClass="DLRadioButton">
-                                <rect key="frame" x="169" y="253" width="79" height="29"/>
+                                <rect key="frame" x="169" y="253" width="79" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="JcK-yp-8Pz"/>
                                 </constraints>
@@ -136,7 +136,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCL-4B-8Oa" customClass="DLRadioButton">
-                                <rect key="frame" x="271" y="253" width="60" height="29"/>
+                                <rect key="frame" x="271" y="253" width="60" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="d0h-qB-ZbR"/>
                                 </constraints>
@@ -151,7 +151,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEd-Xv-pTH" customClass="DLRadioButton">
-                                <rect key="frame" x="377" y="253" width="54" height="29"/>
+                                <rect key="frame" x="377" y="253" width="54" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="54" id="7FE-3V-aQQ"/>
                                 </constraints>
