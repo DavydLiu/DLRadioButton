@@ -13,7 +13,7 @@
 
 ####To install:
 *	Option 1: simply put `DLRadioButton.h` and `DLRadiobutton.m` in your project.
-*	Option 2: add `pod DLRadioButton, '~> 1.4'` to your `Podfile`.
+*	Option 2: add `pod 'DLRadioButton', '~> 1.4'` to your `Podfile`.
 *	Option 3: add `github "DavydLiu/DLRadioButton" ~> 1.4` to your `Cartfile`.
 
 ####To add radio buttons in interface builder:
