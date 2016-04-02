@@ -13,6 +13,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] > 9.0) {
+        // Force RTL interface layout
+//        [[UIView appearance] setSemanticContentAttribute:UISemanticContentAttributeForceRightToLeft];
+    }
     return YES;
 }
 
