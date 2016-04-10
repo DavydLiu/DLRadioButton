@@ -6,11 +6,35 @@
 IB_DESIGNABLE
 @interface DLRadioButton : UIButton
 
+#pragma mark - Access buttons
+
+/**
+ *  Finds out selected button in same group.
+ *
+ *  @return Selected button.
+ */
+- (nullable DLRadioButton *)selectedButton;
+
+/**
+ *  Finds out selected buttons in same group, use it only if multiple selection is enabled.
+ *
+ *  @return Selected buttons.
+ */
+- (nonnull NSArray<DLRadioButton *> *)selectedButtons;
+
 /**
  *  Container for holding other buttons in same group.
  */
-@property (nonatomic) IBOutletCollection(DLRadioButton) NSArray *otherButtons;
+@property (nonnull, nonatomic) IBOutletCollection(DLRadioButton) NSArray<DLRadioButton *> *otherButtons;
 
+/**
+ *  Clears selection for other buttons in in same group.
+ */
+- (void)deselectOtherButtons;
+
+#pragma mark - Customization
+
+NS_ASSUME_NONNULL_BEGIN
 /**
  *  Size of icon, default is kDefaulIconSize.
  */
@@ -66,24 +90,6 @@ IB_DESIGNABLE
  *  Whether enable multiple selection, default is NO.
  */
 @property (nonatomic, getter = isMultipleSelectionEnabled) BOOL multipleSelectionEnabled;
-
-/**
- *  Finds out selected button in same group.
- *
- *  @return Selected button.
- */
-- (DLRadioButton *)selectedButton;
-
-/**
- *  Finds out selected buttons in same group, use it only if multiple selection is enabled.
- *
- *  @return Selected buttons.
- */
-- (NSArray *)selectedButtons;
-
-/**
- *  Clears selection for other buttons in in same group.
- */
-- (void)deselectOtherButtons;
+NS_ASSUME_NONNULL_END
 
 @end

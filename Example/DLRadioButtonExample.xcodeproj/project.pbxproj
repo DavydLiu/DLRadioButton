@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		63B875781CB047AB00AE8E98 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B875771CB047AB00AE8E98 /* DLRadioButton.framework */; };
 		63B875791CB0481900AE8E98 /* DLRadioButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63B875771CB047AB00AE8E98 /* DLRadioButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63B8757B1CBAB95800AE8E98 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8757A1CBAB95800AE8E98 /* DemoViewController.swift */; };
 		63C933161B48EB1C009DD715 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C933151B48EB1C009DD715 /* Images.xcassets */; };
 		D1BE3A0319A7D263004BD3F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0219A7D263004BD3F5 /* Foundation.framework */; };
 		D1BE3A0519A7D263004BD3F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1BE3A0419A7D263004BD3F5 /* CoreGraphics.framework */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		63B875771CB047AB00AE8E98 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DLRadioButton.framework; sourceTree = "<group>"; };
+		63B8757A1CBAB95800AE8E98 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		63C933151B48EB1C009DD715 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D1BE39FF19A7D263004BD3F5 /* DLRadioButtonExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLRadioButtonExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BE3A0219A7D263004BD3F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,10 +103,11 @@
 				D1BE3A1119A7D263004BD3F5 /* DLAppDelegate.h */,
 				D1BE3A1219A7D263004BD3F5 /* DLAppDelegate.m */,
 				63C933151B48EB1C009DD715 /* Images.xcassets */,
-				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
 				D1BE3A3519AB683D004BD3F5 /* Main.storyboard */,
 				D1BE3A3719AB7000004BD3F5 /* DLDemoViewController.h */,
 				D1BE3A3819AB7000004BD3F5 /* DLDemoViewController.m */,
+				63B8757A1CBAB95800AE8E98 /* DemoViewController.swift */,
+				D1BE3A0919A7D263004BD3F5 /* Supporting Files */,
 			);
 			path = DLRadioButtonExample;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DL;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Xingruo Liu";
 				TargetAttributes = {
@@ -198,6 +202,7 @@
 				D1BE3A1319A7D263004BD3F5 /* DLAppDelegate.m in Sources */,
 				D1BE3A3919AB7000004BD3F5 /* DLDemoViewController.m in Sources */,
 				D1BE3A0F19A7D263004BD3F5 /* main.m in Sources */,
+				63B8757B1CBAB95800AE8E98 /* DemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -307,6 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liuxingruo.$(PRODUCT_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -315,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

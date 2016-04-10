@@ -1,18 +1,12 @@
 #import "DLDemoViewController.h"
 
+@interface DLDemoViewController ()
+
+@property (weak, nonatomic) IBOutlet DLRadioButton *waterButton;
+
+@end
+
 @implementation DLDemoViewController
-
-#pragma mark - Helpers
-
-- (IBAction)logSelectedButton:(DLRadioButton *)radiobutton {
-    if (radiobutton.isMultipleSelectionEnabled) {
-        for (DLRadioButton *button in radiobutton.selectedButtons) {
-            NSLog(@"%@ is selected.\n", button.titleLabel.text);
-        }
-    } else {
-        NSLog(@"%@ is selected.\n", radiobutton.selectedButton.titleLabel.text);
-    }
-}
 
 #pragma mark - UIViewController
 
@@ -22,31 +16,23 @@
     // enable multiple selection for water, beer and wine buttons.
     self.waterButton.multipleSelectionEnabled = YES;
     
-    // programmatically add buttons
+    // programmatically add button
     // first button
-    DLRadioButton *firstRadioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 131, 350, 262, 17)];
-    firstRadioButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [firstRadioButton setTitle:@"Red Button" forState:UIControlStateNormal];
-    [firstRadioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    firstRadioButton.iconColor = [UIColor redColor];
-    firstRadioButton.indicatorColor = [UIColor redColor];
-    firstRadioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [firstRadioButton addTarget:self action:@selector(logSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:firstRadioButton];
+    CGRect frame = CGRectMake(self.view.frame.size.width / 2 - 131, 350, 262, 17);
+    DLRadioButton *firstRadioButton = [self createRadioButtonWithFrame:frame
+                                                                 Title:@"Red Button"
+                                                                 Color:[UIColor redColor]];
     
     // other buttons
     NSArray *colorNames = @[@"Brown", @"Orange", @"Green", @"Blue", @"Purple"];
-    NSArray *buttonColors = @[[UIColor brownColor], [UIColor orangeColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
+    NSArray *colors = @[[UIColor brownColor], [UIColor orangeColor], [UIColor greenColor], [UIColor blueColor], [UIColor purpleColor]];
     NSInteger i = 0;
     NSMutableArray *otherButtons = [NSMutableArray new];
-    for (UIColor *buttonColor in buttonColors) {
-        // customize button
-        DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 131, 380 + 30 * i, 262, 17)];
-        radioButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        [radioButton setTitle:[colorNames[i] stringByAppendingString:@" Button"] forState:UIControlStateNormal];
-        [radioButton setTitleColor:buttonColor forState:UIControlStateNormal];
-        radioButton.iconColor = buttonColor;
-        radioButton.indicatorColor = buttonColor;
+    for (UIColor *color in colors) {
+        CGRect frame = CGRectMake(self.view.frame.size.width / 2 - 131, 380 + 30 * i, 262, 17);
+        DLRadioButton *radioButton = [self createRadioButtonWithFrame:frame
+                                                                Title:[colorNames[i] stringByAppendingString:@" Button"]
+                                                                Color:color];
         if (i % 2 == 0) {
             radioButton.iconSquare = YES;
         }
@@ -54,20 +40,39 @@
             // put icon on the right side
             radioButton.iconOnRight = YES;
             radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        } else {
-            radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         }
         [otherButtons addObject:radioButton];
-        [radioButton addTarget:self action:@selector(logSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:radioButton];
         i++;
     }
     
     firstRadioButton.otherButtons = otherButtons;
 }
 
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+#pragma mark - Helper
+
+- (DLRadioButton *)createRadioButtonWithFrame:(CGRect) frame Title:(NSString *)title Color:(UIColor *)color
+{
+    DLRadioButton *radioButton = [[DLRadioButton alloc] initWithFrame:frame];
+    radioButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [radioButton setTitle:title forState:UIControlStateNormal];
+    [radioButton setTitleColor:color forState:UIControlStateNormal];
+    radioButton.iconColor = color;
+    radioButton.indicatorColor = color;
+    radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [radioButton addTarget:self action:@selector(logSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:radioButton];
     
+    return radioButton;
+}
+
+- (IBAction)logSelectedButton:(DLRadioButton *)radioButton {
+    if (radioButton.isMultipleSelectionEnabled) {
+        for (DLRadioButton *button in radioButton.selectedButtons) {
+            NSLog(@"%@ is selected.\n", button.titleLabel.text);
+        }
+    } else {
+        NSLog(@"%@ is selected.\n", radioButton.selectedButton.titleLabel.text);
+    }
 }
 
 @end
