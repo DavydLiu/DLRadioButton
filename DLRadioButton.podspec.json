@@ -1,6 +1,6 @@
 {
 	"name": "DLRadioButton",
-	"version": "1.4.8",
+	"version": "1.4.9",
 	"summary": "A highly customizable Radio Button for iOS",
 	"description": "A highly customizable Radio Button for iOS.\n\n* Buttons are drew by UIBezierPath, customize it however you want.\n* You can also use pictures to indicate buttons' selection state.\n",
 	"homepage": "https://github.com/DavydLiu/DLRadioButton",
@@ -17,7 +17,7 @@
 	},
 	"source": {
 		"git": "https://github.com/DavydLiu/DLRadioButton.git",
-		"tag": "1.4.8"
+		"tag": "1.4.9"
 	},
 	"source_files": "DLRadioButton/**/*.{h,m}",
 	"exclude_files": "Classes/Exclude",

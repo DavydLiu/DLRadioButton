@@ -158,7 +158,7 @@
 					D1BE39FE19A7D263004BD3F5 = {
 						SystemCapabilities = {
 							com.apple.DataProtection = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};

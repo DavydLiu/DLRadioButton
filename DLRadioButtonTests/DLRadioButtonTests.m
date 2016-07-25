@@ -86,6 +86,8 @@
     }
     [self measureBlock:^{
         self.firstButton.otherButtons = otherButtons;
+        self.firstButton.multipleSelectionEnabled = YES;
+        self.firstButton.animationDuration = 0.0;
     }];
 }
 

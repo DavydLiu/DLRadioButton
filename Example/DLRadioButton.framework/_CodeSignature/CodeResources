@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/DLRadioButton.h</key>
 		<data>
-		AxrEoeOQUM+yJB38xuZlF8jcNuw=
+		opCduLHc0hMG+jV3x2hZaDX2RTE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UWWN2PR9W5RaAhlcmepNLPp+7rE=
+		WlX3zqg5QAoPWwAf9UQnQZgeAOM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -20,13 +20,27 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/DLRadioButton.h</key>
-		<data>
-		AxrEoeOQUM+yJB38xuZlF8jcNuw=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			opCduLHc0hMG+jV3x2hZaDX2RTE=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZoXhTGztRGLeWxfEPus2he6zxonMyM3BXHMHeQMctKk=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		nfXHSd4ttXRVnMqiHasypSc5vmA=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			nfXHSd4ttXRVnMqiHasypSc5vmA=
+			</data>
+			<key>hash2</key>
+			<data>
+			F+lZUkj4bZx8Cc690z09c94HK/iwp68QR3Lvfz5pGWA=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

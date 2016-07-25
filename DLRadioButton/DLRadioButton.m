@@ -1,8 +1,10 @@
 #import "DLRadioButton.h"
 
-static const CGFloat kDefaulIconSize = 15.0;
+static const CGFloat kDefaultIconSize = 15.0;
 static const CGFloat kDefaultMarginWidth = 5.0;
+static const CFTimeInterval kDefaultAnimationDuration = 0.3;
 static NSString * const kGeneratedIconName = @"Generated Icon";
+
 static BOOL _groupModifing = NO;
 
 @implementation DLRadioButton
@@ -43,6 +45,17 @@ static BOOL _groupModifing = NO;
     _multipleSelectionEnabled = multipleSelectionEnabled;
 }
 
+- (void)setAnimationDuration:(CFTimeInterval)animationDuration {
+    if (![DLRadioButton isGroupModifing]) {
+        [DLRadioButton groupModifing:YES];
+        for (DLRadioButton *radioButton in self.otherButtons) {
+            radioButton.animationDuration = animationDuration;
+        }
+        [DLRadioButton groupModifing:NO];
+    }
+    _animationDuration = animationDuration;
+}
+
 #pragma mark - Helpers
 
 - (void)drawButton {
@@ -52,7 +65,7 @@ static BOOL _groupModifing = NO;
     if (!self.iconSelected || [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
         self.iconSelected = [self drawIconWithSelection:YES];
     }
-    CGFloat marginWidth = self.marginWidth ? self.marginWidth : kDefaultMarginWidth;
+    CGFloat marginWidth = self.marginWidth;
     BOOL isRightToLeftLayout = NO;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
         isRightToLeftLayout = [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft;
@@ -77,7 +90,7 @@ static BOOL _groupModifing = NO;
     UIColor *defaulColor = selected ? [self titleColorForState:UIControlStateSelected | UIControlStateHighlighted] : [self titleColorForState:UIControlStateNormal];
     UIColor *iconColor = self.iconColor ? self.iconColor : defaulColor;
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : defaulColor;
-    CGFloat iconSize = self.iconSize ? self.iconSize : kDefaulIconSize;
+    CGFloat iconSize = self.iconSize;
     CGFloat iconStrokeWidth = self.iconStrokeWidth ? self.iconStrokeWidth : iconSize / 9;
     CGFloat indicatorSize = self.indicatorSize ? self.indicatorSize : iconSize * 0.5;
     
@@ -121,13 +134,18 @@ static BOOL _groupModifing = NO;
     return image;
 }
 
-- (void)touchDown {
+- (void)touchUpInside {
     [self setSelected:YES];
 }
 
 - (void)initRadioButton {
-    [super addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchUpInside];
+    _iconSize = kDefaultIconSize;
+    _marginWidth = kDefaultMarginWidth;
+    _animationDuration = kDefaultAnimationDuration;
+    [super addTarget:self action:@selector(touchUpInside) forControlEvents:UIControlEventTouchUpInside];
 }
+
+#pragma mark - NSObject
 
 - (void)prepareForInterfaceBuilder {
     [self initRadioButton];
@@ -199,6 +217,18 @@ static BOOL _groupModifing = NO;
 #pragma mark - UIControl
 
 - (void)setSelected:(BOOL)selected {
+    if ((self.isMultipleSelectionEnabled ||
+        (selected != self.isSelected &&
+        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
+        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
+        self.animationDuration > 0.0) {
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"contents"];
+        animation.duration = self.animationDuration;
+        animation.fromValue = self.isSelected ? (id)self.iconSelected.CGImage : (id)self.icon.CGImage;
+        animation.toValue = self.isSelected ? (id)self.icon.CGImage : (id)self.iconSelected.CGImage;
+        [self.imageView.layer addAnimation:animation forKey:@"icon"];
+    }
+    
     if (self.isMultipleSelectionEnabled) {
         [super setSelected:!self.isSelected];
     } else {

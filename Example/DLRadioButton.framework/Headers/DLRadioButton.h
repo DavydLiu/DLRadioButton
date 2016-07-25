@@ -1,95 +1,98 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  A hightly customizable Radio Button for iOS.
+ * A hightly customizable Radio Button for iOS.
  */
 IB_DESIGNABLE
+NS_ASSUME_NONNULL_BEGIN
 @interface DLRadioButton : UIButton
 
 #pragma mark - Access buttons
 
 /**
- *  Finds out selected button in same group.
- *
- *  @return Selected button.
+ * @brief Finds out selected button in same group.
+ * @return Selected button.
  */
 - (nullable DLRadioButton *)selectedButton;
 
 /**
- *  Finds out selected buttons in same group, use it only if multiple selection is enabled.
- *
- *  @return Selected buttons.
+ * @brief Finds out selected buttons in same group, use it only if multiple selection is enabled.
+ * @return Selected buttons.
  */
-- (nonnull NSArray<DLRadioButton *> *)selectedButtons;
+- (NSArray<DLRadioButton *> *)selectedButtons;
 
 /**
- *  Container for holding other buttons in same group.
+ * @brief Container for holding other buttons in same group.
  */
-@property (nonnull, nonatomic) IBOutletCollection(DLRadioButton) NSArray<DLRadioButton *> *otherButtons;
+@property (nonatomic) IBOutletCollection(DLRadioButton) NSArray<DLRadioButton *> *otherButtons;
 
 /**
- *  Clears selection for other buttons in in same group.
+ * @brief Clears selection for other buttons in in same group.
  */
 - (void)deselectOtherButtons;
 
 #pragma mark - Customization
 
-NS_ASSUME_NONNULL_BEGIN
 /**
- *  Size of icon, default is kDefaulIconSize.
+ * @brief Size of icon, default is kDefaulIconSize.
  */
 @property (nonatomic) IBInspectable CGFloat iconSize;
 
 /**
- *  Color of icon, default is title color for current UIControlState.
+ * @brief Color of icon, default is title color for current UIControlState.
  */
 @property (nonatomic) IBInspectable UIColor *iconColor;
 
 /**
- *  Stroke width of icon, default is iconSize / 9.
+ * @brief Stroke width of icon, default is iconSize / 9.
  */
 @property (nonatomic) IBInspectable CGFloat iconStrokeWidth;
 
 /**
- *  Size of selection indicator, default is iconSize * 0.5.
+ * @brief Size of selection indicator, default is iconSize * 0.5.
  */
 @property (nonatomic) IBInspectable CGFloat indicatorSize;
 
 /**
- *  Color of selection indicator, default is title color for current UIControlState.
+ * @brief Color of selection indicator, default is title color for current UIControlState.
  */
 @property (nonatomic) IBInspectable UIColor *indicatorColor;
 
 /**
- *  Margin width between icon and title, default is kDefaultMarginWidth.
+ * @brief Margin width between icon and title, default is kDefaultMarginWidth.
  */
 @property (nonatomic) IBInspectable CGFloat marginWidth;
 
 /**
- *  Whether icon on the right side, default is NO.
- *  @warning Please also set contentHorizontalAlignment to UIControlContentHorizontalAlignmentRight.
+ * @brief Whether icon on the right side, default is NO.
+ * @warning Please also set contentHorizontalAlignment to UIControlContentHorizontalAlignmentRight.
  */
 @property (nonatomic, getter = isIconOnRight) IBInspectable BOOL iconOnRight;
 
 /**
- *  Whether use square icon, default is NO.
+ * @brief Whether use square icon, default is NO.
  */
 @property (nonatomic, getter = isIconSquare) IBInspectable BOOL iconSquare;
 
 /**
- *  Image for radio button icon (optional).
+ * @brief Image for radio button icon (optional).
  */
 @property (nonatomic) IBInspectable UIImage *icon;
 
 /**
- *  Image for radio button icon when selected (optional).
+ * @brief Image for radio button icon when selected (optional).
  */
 @property (nonatomic) IBInspectable UIImage *iconSelected;
 
 /**
- *  Whether enable multiple selection, default is NO.
+ * @brief Whether enable multiple selection, default is NO.
  */
 @property (nonatomic, getter = isMultipleSelectionEnabled) BOOL multipleSelectionEnabled;
-NS_ASSUME_NONNULL_END
+
+/**
+ * @brief Duration of radio button icon animation in seconds. Set it to 0.0 to turn off animation, default is 0.3.
+ */
+@property (nonatomic) CFTimeInterval animationDuration;
 
 @end
+NS_ASSUME_NONNULL_END
