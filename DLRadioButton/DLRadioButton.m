@@ -218,9 +218,10 @@ static BOOL _groupModifing = NO;
 
 - (void)setSelected:(BOOL)selected {
     if ((self.isMultipleSelectionEnabled ||
-        (selected != self.isSelected &&
-        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
-        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
+         (self.isSelected && self.isDeselectionEnabled) ||
+         (selected != self.isSelected &&
+          [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
+          [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
         self.animationDuration > 0.0) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"contents"];
         animation.duration = self.animationDuration;
@@ -229,12 +230,18 @@ static BOOL _groupModifing = NO;
         [self.imageView.layer addAnimation:animation forKey:@"icon"];
     }
     
-    if (self.isMultipleSelectionEnabled) {
-        [super setSelected:!self.isSelected];
+    if (self.isSelected) {
+        if (self.isDeselectionEnabled) {
+            [super setSelected:NO];
+        }
     } else {
-        [super setSelected:selected];
-        if (selected) {
-            [self deselectOtherButtons];
+        if (self.isMultipleSelectionEnabled) {
+            [super setSelected:!self.isSelected];
+        } else {
+            [super setSelected:selected];
+            if (selected) {
+                [self deselectOtherButtons];
+            }
         }
     }
 }

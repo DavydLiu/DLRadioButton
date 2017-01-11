@@ -90,6 +90,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter = isMultipleSelectionEnabled) BOOL multipleSelectionEnabled;
 
 /**
+ * @brief Whether this radio button can be deselected by tapping on it.
+ */
+@property (nonatomic, getter = isDeselectionEnabled) IBInspectable BOOL deSelectionEnabled;
+
+/**
  * @brief Duration of radio button icon animation in seconds. Set it to 0.0 to turn off animation, default is 0.3.
  */
 @property (nonatomic) CFTimeInterval animationDuration;
