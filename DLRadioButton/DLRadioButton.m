@@ -233,6 +233,13 @@ static BOOL _groupModifing = NO;
     if (self.isSelected) {
         if (self.isDeselectionEnabled) {
             [super setSelected:NO];
+        } else {
+          // Not enabled for deselection, only deselect this one if one of the other buttons is selected
+          for (UIButton *button in self.otherButtons) {
+            if (button.isSelected) {
+              [super setSelected: NO];
+            }
+          }
         }
     } else {
         if (self.isMultipleSelectionEnabled) {
