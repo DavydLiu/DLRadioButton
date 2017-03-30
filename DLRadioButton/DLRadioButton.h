@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)deselectOtherButtons;
 
+#pragma mark - UIControl
+- (void)setSelected:(BOOL)selected;
+
 #pragma mark - Customization
 
 /**
