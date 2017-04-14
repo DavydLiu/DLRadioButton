@@ -7,6 +7,13 @@ static NSString * const kGeneratedIconName = @"Generated Icon";
 
 static BOOL _groupModifing = NO;
 
+@interface DLRadioButton ()
+
+/** prevent button from animating at first showing */
+@property (nonatomic, assign) BOOL isSelectedInitialised;
+
+@end
+
 @implementation DLRadioButton
 
 - (void)setOtherButtons:(NSArray *)otherButtons {
@@ -135,7 +142,7 @@ static BOOL _groupModifing = NO;
 }
 
 - (void)touchUpInside {
-    [self setSelected:YES];
+    [self setSelected:!self.isSelected];
 }
 
 - (void)initRadioButton {
@@ -217,10 +224,10 @@ static BOOL _groupModifing = NO;
 #pragma mark - UIControl
 
 - (void)setSelected:(BOOL)selected {
-    if ((self.isMultipleSelectionEnabled ||
-        (selected != self.isSelected &&
-        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
-        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
+    if (self.isSelectedInitialised && (self.isMultipleSelectionEnabled ||
+                                       (selected != self.isSelected &&
+                                        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
+                                        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
         self.animationDuration > 0.0) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"contents"];
         animation.duration = self.animationDuration;
@@ -230,13 +237,15 @@ static BOOL _groupModifing = NO;
     }
     
     if (self.isMultipleSelectionEnabled) {
-        [super setSelected:!self.isSelected];
+        [super setSelected:selected];
     } else {
         [super setSelected:selected];
         if (selected) {
             [self deselectOtherButtons];
         }
     }
+    
+    self.isSelectedInitialised = YES;
 }
 
 #pragma mark - UIView
