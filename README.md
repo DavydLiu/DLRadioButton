@@ -15,12 +15,12 @@ Since its release, DLRadioButton has become the most popular radio buttons contr
 
 ## Usage
 
-####To install:
+#### To install:
 *	Option 1: simply put `DLRadioButton.h` and `DLRadiobutton.m` in your project.
 *	Option 2: add `pod 'DLRadioButton', '~> 1.4'` to your `Podfile`.
 *	Option 3: add `github "DavydLiu/DLRadioButton" ~> 1.4` to your `Cartfile`.
 
-####To add radio buttons in interface builder:
+#### To add radio buttons in interface builder:
 
 1.  Put some UIButtons onto a View and change the UIButtons' type to "custom".
 
@@ -34,7 +34,7 @@ Since its release, DLRadioButton has become the most popular radio buttons contr
 
 	![set otherButtons outlet](Images/set_otherButtons_outlet.png)
 
-####To customize DLRadiobutton:
+#### To customize DLRadiobutton:
 
 *	Simply set properties directly in Interface Builder.
 
@@ -44,7 +44,7 @@ Since its release, DLRadioButton has become the most popular radio buttons contr
 	
 	![DLRadioButton](Images/DLRadioButton.png)
 	
-####To add radio buttons programmatically, please refer to the example project.
+#### To add radio buttons programmatically, please refer to the example project.
 
 ## Requirements
 
