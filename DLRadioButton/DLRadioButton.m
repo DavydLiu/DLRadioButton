@@ -22,7 +22,9 @@ static BOOL _groupModifing = NO;
     }
     _otherButtons = otherButtons;
 }
-
+-(CGSize)intrinsicContentSize {
+	return CGSizeMake(super.intrinsicContentSize.width , self.titleLabel.intrinsicContentSize.height);
+}
 - (void)setIcon:(UIImage *)icon {
     _icon = icon;
     [self setImage:self.icon forState:UIControlStateNormal];
@@ -260,6 +262,12 @@ static BOOL _groupModifing = NO;
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     [self drawButton];
+}
+
+- (void)layoutSubviews
+{
+	[super layoutSubviews];
+	self.titleLabel.preferredMaxLayoutWidth = self.titleLabel.frame.size.width;
 }
 
 @end
