@@ -7,7 +7,19 @@ static NSString * const kGeneratedIconName = @"Generated Icon";
 
 static BOOL _groupModifing = NO;
 
+@interface DLRadioButton ()
+
+/** prevent button from animating at first showing */
+@property (nonatomic, assign) BOOL isSelectedInitialized;
+
+@end
+
 @implementation DLRadioButton
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.isSelectedInitialized = YES;
+}
 
 - (void)setOtherButtons:(NSArray *)otherButtons {
     if (![DLRadioButton isGroupModifing]) {
@@ -135,7 +147,7 @@ static BOOL _groupModifing = NO;
 }
 
 - (void)touchUpInside {
-    [self setSelected:YES];
+    [self setSelected:!self.isSelected];
 }
 
 - (void)initRadioButton {
@@ -217,10 +229,10 @@ static BOOL _groupModifing = NO;
 #pragma mark - UIControl
 
 - (void)setSelected:(BOOL)selected {
-    if ((self.isMultipleSelectionEnabled ||
-        (selected != self.isSelected &&
-        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
-        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
+    if (self.isSelectedInitialized && (self.isMultipleSelectionEnabled ||
+                                       (selected != self.isSelected &&
+                                        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
+                                        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
         self.animationDuration > 0.0) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"contents"];
         animation.duration = self.animationDuration;
@@ -230,13 +242,15 @@ static BOOL _groupModifing = NO;
     }
     
     if (self.isMultipleSelectionEnabled) {
-        [super setSelected:!self.isSelected];
+        [super setSelected:selected];
     } else {
         [super setSelected:selected];
         if (selected) {
             [self deselectOtherButtons];
         }
     }
+    
+    self.isSelectedInitialized = YES;
 }
 
 #pragma mark - UIView
