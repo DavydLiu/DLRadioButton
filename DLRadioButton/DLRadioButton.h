@@ -42,6 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @brief Color of icon, default is title color for current UIControlState.
  */
 @property (nonatomic) IBInspectable UIColor *iconColor;
+    
+/**
+ * @brief Background color of icon, default is white color
+ */
+@property (nonatomic) IBInspectable UIColor *iconBackgroundColor;
 
 /**
  * @brief Stroke width of icon, default is iconSize / 9.
