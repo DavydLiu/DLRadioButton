@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.4.10](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.10) (10/09/2017)
+* Update Swift example file to use Swift 4.
+
 ## [1.4.9](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.9) (07/24/2016)
 * Added animation for button selection.
 

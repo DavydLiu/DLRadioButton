@@ -8,28 +8,28 @@ class DemoViewController : UIViewController {
         super.viewDidLoad();
         
         // enable multiple selection for water, beer and wine buttons.
-        self.waterButton.multipleSelectionEnabled = true;
+        self.waterButton.isMultipleSelectionEnabled = true;
         
         // programmatically add buttons
         // first button
-        let frame = CGRectMake(self.view.frame.size.width / 2 - 131, 350, 262, 17);
-        let firstRadioButton = createRadioButton(frame, title: "Red Button", color: UIColor.redColor());
+        let frame = CGRect(x: self.view.frame.size.width / 2 - 131, y: 350, width: 262, height: 17);
+        let firstRadioButton = createRadioButton(frame: frame, title: "Red Button", color: UIColor.red);
         
         //other buttons
         let colorNames = ["Brown", "Orange", "Green", "Blue", "Purple"];
-        let colors = [UIColor.brownColor(), UIColor.orangeColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor()];
+        let colors = [UIColor.brown, UIColor.orange, UIColor.green, UIColor.blue, UIColor.purple];
         var i = 0;
         var otherButtons : [DLRadioButton] = [];
         for color in colors {
-            let frame = CGRectMake(self.view.frame.size.width / 2 - 131, 380 + 30 * CGFloat(i), 262, 17);
-            let radioButton = createRadioButton(frame, title: colorNames[i] + " Button", color: color);
+            let frame = CGRect(x: self.view.frame.size.width / 2 - 131, y: 380 + 30 * CGFloat(i), width: 262, height: 17);
+            let radioButton = createRadioButton(frame: frame, title: colorNames[i] + " Button", color: color);
             if (i % 2 == 0) {
-                radioButton.iconSquare = true;
+                radioButton.isIconSquare = true;
             }
             if (i > 1) {
                 // put icon on the right side
-                radioButton.iconOnRight = true;
-                radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right;
+                radioButton.isIconOnRight = true;
+                radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right;
             }
             otherButtons.append(radioButton);
             i += 1;
@@ -42,25 +42,25 @@ class DemoViewController : UIViewController {
     
     private func createRadioButton(frame : CGRect, title : String, color : UIColor) -> DLRadioButton {
         let radioButton = DLRadioButton(frame: frame);
-        radioButton.titleLabel!.font = UIFont.systemFontOfSize(14);
-        radioButton.setTitle(title, forState: UIControlState.Normal);
-        radioButton.setTitleColor(color, forState: UIControlState.Normal);
+        radioButton.titleLabel!.font = UIFont.systemFont(ofSize: 14);
+        radioButton.setTitle(title, for: []);
+        radioButton.setTitleColor(color, for: []);
         radioButton.iconColor = color;
         radioButton.indicatorColor = color;
-        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left;
-        radioButton.addTarget(self, action: #selector(DemoViewController.logSelectedButton), forControlEvents: UIControlEvents.TouchUpInside);
+        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left;
+        radioButton.addTarget(self, action: #selector(DemoViewController.logSelectedButton), for: UIControlEvents.touchUpInside);
         self.view.addSubview(radioButton);
         
         return radioButton;
     }
     
     @objc @IBAction private func logSelectedButton(radioButton : DLRadioButton) {
-        if (radioButton.multipleSelectionEnabled) {
+        if (radioButton.isMultipleSelectionEnabled) {
             for button in radioButton.selectedButtons() {
                 print(String(format: "%@ is selected.\n", button.titleLabel!.text!));
             }
         } else {
-            print(String(format: "%@ is selected.\n", radioButton.selectedButton()!.titleLabel!.text!));
+            print(String(format: "%@ is selected.\n", radioButton.selected()!.titleLabel!.text!));
         }
     }
 }
