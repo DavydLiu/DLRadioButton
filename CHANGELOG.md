@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.4.11](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.11) (10/09/2017)
+* Fix disconnected action responders in Swift example.
+
 ## [1.4.10](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.10) (10/09/2017)
 * Update Swift example file to use Swift 4.
 
