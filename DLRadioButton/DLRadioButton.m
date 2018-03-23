@@ -9,6 +9,8 @@ static BOOL _groupModifing = NO;
 
 @implementation DLRadioButton
 
+@synthesize otherButtons = _otherButtons;
+
 - (void)setOtherButtons:(NSArray *)otherButtons {
     if (![DLRadioButton isGroupModifing]) {
         [DLRadioButton groupModifing:YES];
@@ -20,7 +22,22 @@ static BOOL _groupModifing = NO;
         }
         [DLRadioButton groupModifing:NO];
     }
-    _otherButtons = otherButtons;
+    NSMutableArray *otherButtonsForCurrentButton = [[NSMutableArray alloc] initWithCapacity:otherButtons.count];
+    for (DLRadioButton *radioButton in otherButtons) {
+        [otherButtonsForCurrentButton addObject:[NSValue valueWithNonretainedObject:radioButton]];
+    }
+    _otherButtons = [otherButtonsForCurrentButton copy];
+}
+
+- (NSArray *)otherButtons {
+    if([_otherButtons count]) {
+        NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:[_otherButtons count]];
+        for(NSValue *value in _otherButtons) {
+            [buttons addObject:[value nonretainedObjectValue]];
+        }
+        return buttons;
+    }
+    return nil;
 }
 
 - (void)setIcon:(UIImage *)icon {
@@ -218,9 +235,9 @@ static BOOL _groupModifing = NO;
 
 - (void)setSelected:(BOOL)selected {
     if ((self.isMultipleSelectionEnabled ||
-        (selected != self.isSelected &&
-        [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
-        [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
+         (selected != self.isSelected &&
+          [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName] &&
+          [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName])) &&
         self.animationDuration > 0.0) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"contents"];
         animation.duration = self.animationDuration;
