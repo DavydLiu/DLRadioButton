@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [1.4.12](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.12) (04/19/2018)
+* Move selection inversion logic from `setSelect` to `touchUpInside` for multiple selection buttons
+* Break otherButtons retain cycle
+
 ## [1.4.11](https://github.com/DavydLiu/DLRadioButton/releases/tag/1.4.11) (10/09/2017)
 * Fix disconnected action responders in Swift example.
 

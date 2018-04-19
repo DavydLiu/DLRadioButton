@@ -15,6 +15,10 @@
     
     // enable multiple selection for water, beer and wine buttons.
     self.waterButton.multipleSelectionEnabled = YES;
+    // set selection states programmatically
+    for (DLRadioButton *radioButton in self.waterButton.otherButtons) {
+        radioButton.selected = YES;
+    }
     
     // programmatically add button
     // first button
@@ -46,6 +50,8 @@
     }
     
     firstRadioButton.otherButtons = otherButtons;
+    // set selection state programmatically
+    firstRadioButton.otherButtons[1].selected = YES;
 }
 
 #pragma mark - Helper

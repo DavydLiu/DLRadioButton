@@ -69,13 +69,6 @@
     XCTAssertFalse([[self.firstButton selectedButtons] containsObject:self.firstButton]);
     XCTAssertTrue([[self.firstButton selectedButtons] containsObject:self.secondButton]);
     XCTAssertTrue([[self.firstButton selectedButtons] containsObject:self.thirdButton]);
-    
-    // first and second button should be selected.
-    [self.firstButton setSelected:YES];
-    [self.thirdButton setSelected:YES];
-    XCTAssertTrue([[self.secondButton selectedButtons] containsObject:self.firstButton]);
-    XCTAssertTrue([[self.secondButton selectedButtons] containsObject:self.secondButton]);
-    XCTAssertFalse([[self.secondButton selectedButtons] containsObject:self.thirdButton]);
 }
 
 - (void)testButtonsGroupModifingPerformance {

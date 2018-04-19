@@ -9,6 +9,10 @@ class DemoViewController : UIViewController {
         
         // enable multiple selection for water, beer and wine buttons.
         self.waterButton.isMultipleSelectionEnabled = true;
+        // set selection states programmatically
+        for radioButton in self.waterButton.otherButtons {
+            radioButton.isSelected = true;
+        }
         
         // programmatically add buttons
         // first button
@@ -36,6 +40,8 @@ class DemoViewController : UIViewController {
         }
         
         firstRadioButton.otherButtons = otherButtons;
+        // set selection state programmatically
+        firstRadioButton.otherButtons[1].isSelected = true;
     }
     
     // MARK: Helper

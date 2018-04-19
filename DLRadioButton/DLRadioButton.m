@@ -9,6 +9,8 @@ static BOOL _groupModifing = NO;
 
 @implementation DLRadioButton
 
+@synthesize otherButtons = _otherButtons;
+
 - (void)setOtherButtons:(NSArray *)otherButtons {
     if (![DLRadioButton isGroupModifing]) {
         [DLRadioButton groupModifing:YES];
@@ -20,7 +22,22 @@ static BOOL _groupModifing = NO;
         }
         [DLRadioButton groupModifing:NO];
     }
-    _otherButtons = otherButtons;
+    NSMutableArray *otherButtonsForCurrentButton = [[NSMutableArray alloc] initWithCapacity:otherButtons.count];
+    for (DLRadioButton *radioButton in otherButtons) {
+        [otherButtonsForCurrentButton addObject:[NSValue valueWithNonretainedObject:radioButton]];
+    }
+    _otherButtons = [otherButtonsForCurrentButton copy];
+}
+
+- (NSArray *)otherButtons {
+    if ([_otherButtons count]) {
+        NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:[_otherButtons count]];
+        for (NSValue *value in _otherButtons) {
+            [buttons addObject:[value nonretainedObjectValue]];
+        }
+        return buttons;
+    }
+    return nil;
 }
 
 - (void)setIcon:(UIImage *)icon {
@@ -135,7 +152,11 @@ static BOOL _groupModifing = NO;
 }
 
 - (void)touchUpInside {
-    [self setSelected:YES];
+    if (self.isMultipleSelectionEnabled) {
+        [self setSelected:!self.isSelected];
+    } else {
+        [self setSelected:YES];
+    }
 }
 
 - (void)initRadioButton {
@@ -229,13 +250,9 @@ static BOOL _groupModifing = NO;
         [self.imageView.layer addAnimation:animation forKey:@"icon"];
     }
     
-    if (self.isMultipleSelectionEnabled) {
-        [super setSelected:!self.isSelected];
-    } else {
-        [super setSelected:selected];
-        if (selected) {
-            [self deselectOtherButtons];
-        }
+    [super setSelected:selected];
+    if (!self.isMultipleSelectionEnabled && selected) {
+        [self deselectOtherButtons];
     }
 }
 
