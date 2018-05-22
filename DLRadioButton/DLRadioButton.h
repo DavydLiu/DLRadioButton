@@ -1,5 +1,12 @@
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, IconPosition) {
+    IconPositionLeft    =0,
+    IconPositionRight   =1,
+    IconPositionTop     =2,
+    IconPositionBottom  =3
+};
+
 /**
  * A hightly customizable Radio Button for iOS.
  */
@@ -68,6 +75,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @warning Please also set contentHorizontalAlignment to UIControlContentHorizontalAlignmentRight.
  */
 @property (nonatomic, getter = isIconOnRight) IBInspectable BOOL iconOnRight;
+
+/**
+ * @brief Icon position: Left, Right, Top or Bottom, default to Left.
+ * @warning If position is Right, please also set contentHorizontalAlignment to UIControlContentHorizontalAlignmentRight.
+ * @warning If position is Top or Bottom, please also set contentVerticalAlignment to UIControlContentVerticalAlignmentTop.
+ * @warning If position is Bottom, please also set contentVerticalAlignment to UIControlContentVerticalAlignmentBottom.
+ */
+@property (nonatomic) IBInspectable IconPosition iconPosition;
 
 /**
  * @brief Whether use square icon, default is NO.

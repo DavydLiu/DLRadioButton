@@ -73,6 +73,14 @@ static BOOL _groupModifing = NO;
     _animationDuration = animationDuration;
 }
 
+- (BOOL)isIconOnRight {
+    return self.iconPosition == IconPositionRight;
+}
+
+- (void)setIconOnRight:(BOOL)iconOnRight {
+    _iconPosition = iconOnRight ? IconPositionRight : IconPositionLeft;
+}
+
 #pragma mark - Helpers
 
 - (void)drawButton {
@@ -87,19 +95,33 @@ static BOOL _groupModifing = NO;
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
         isRightToLeftLayout = [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft;
     }
-    if (self.isIconOnRight) {
-        self.imageEdgeInsets = isRightToLeftLayout ?
-        UIEdgeInsetsMake(0, 0, 0, self.frame.size.width - self.icon.size.width) :
-        UIEdgeInsetsMake(0, self.frame.size.width - self.icon.size.width, 0, 0);
-        self.titleEdgeInsets = isRightToLeftLayout ?
-        UIEdgeInsetsMake(0, marginWidth + self.icon.size.width, 0, -self.icon.size.width) :
-        UIEdgeInsetsMake(0, -self.icon.size.width, 0, marginWidth + self.icon.size.width);
-    } else {
-        if (isRightToLeftLayout) {
-            self.imageEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
-        } else {
-            self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
-        }
+    switch (self.iconPosition) {
+        case IconPositionRight:
+            self.imageEdgeInsets = isRightToLeftLayout ?
+            UIEdgeInsetsMake(0, 0, 0, self.frame.size.width - self.icon.size.width) :
+            UIEdgeInsetsMake(0, self.frame.size.width - self.icon.size.width, 0, 0);
+            self.titleEdgeInsets = isRightToLeftLayout ?
+            UIEdgeInsetsMake(0, marginWidth + self.icon.size.width, 0, -self.icon.size.width) :
+            UIEdgeInsetsMake(0, -self.icon.size.width, 0, marginWidth + self.icon.size.width);
+            break;
+        case IconPositionTop:
+            self.imageEdgeInsets = UIEdgeInsetsMake(0, (self.frame.size.width - self.icon.size.width)*0.5, 0, 0);
+            self.titleEdgeInsets = UIEdgeInsetsMake(self.icon.size.height, (self.frame.size.width-self.titleLabel.frame.size.width)*0.5 - self.icon.size.width, 0, 0);
+            break;
+        case IconPositionBottom:
+            self.imageEdgeInsets = UIEdgeInsetsMake(self.frame.size.height - self.icon.size.height, (self.frame.size.width - self.icon.size.width) * 0.5, 0, 0);
+            self.titleEdgeInsets = isRightToLeftLayout ?
+                UIEdgeInsetsMake(0, (self.frame.size.width - self.titleLabel.frame.size.width) * 0.5, self.icon.size.height, 0) :
+                UIEdgeInsetsMake(0, (self.frame.size.width - self.titleLabel.frame.size.width) * 0.5, self.icon.size.height, 0);
+            break;
+        case IconPositionLeft:
+        default:
+            if (isRightToLeftLayout) {
+                self.imageEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
+            } else {
+                self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
+            }
+            break;
     }
 }
 
