@@ -84,8 +84,12 @@ static BOOL _groupModifing = NO;
     }
     CGFloat marginWidth = self.marginWidth;
     BOOL isRightToLeftLayout = NO;
+
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
         isRightToLeftLayout = [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft;
+        if(isRightToLeftLayout){
+          self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        }
     }
     if (self.isIconOnRight) {
         self.imageEdgeInsets = isRightToLeftLayout ?
@@ -110,12 +114,12 @@ static BOOL _groupModifing = NO;
     CGFloat iconSize = self.iconSize;
     CGFloat iconStrokeWidth = self.iconStrokeWidth ? self.iconStrokeWidth : iconSize / 9;
     CGFloat indicatorSize = self.indicatorSize ? self.indicatorSize : iconSize * 0.5;
-    
+
     CGRect rect = CGRectMake(0, 0, iconSize, iconSize);
     CGContextRef context = UIGraphicsGetCurrentContext();
     UIGraphicsPushContext(context);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0);
-    
+
     // draw icon
     UIBezierPath* iconPath;
     CGRect iconRect = CGRectMake(iconStrokeWidth / 2, iconStrokeWidth / 2, iconSize - iconStrokeWidth, iconSize - iconStrokeWidth);
@@ -128,7 +132,7 @@ static BOOL _groupModifing = NO;
     iconPath.lineWidth = iconStrokeWidth;
     [iconPath stroke];
     CGContextAddPath(context, iconPath.CGPath);
-    
+
     // draw indicator
     if (selected) {
         UIBezierPath* indicatorPath;
@@ -142,11 +146,11 @@ static BOOL _groupModifing = NO;
         [indicatorPath fill];
         CGContextAddPath(context, indicatorPath.CGPath);
     }
-    
+
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsPopContext();
     UIGraphicsEndImageContext();
-    
+
     image.accessibilityIdentifier = kGeneratedIconName;
     return image;
 }
@@ -231,7 +235,7 @@ static BOOL _groupModifing = NO;
         }
         [self setTitleColor:selectedOrHighlightedColor forState:UIControlStateSelected | UIControlStateHighlighted];
     }
-    
+
     return [super titleColorForState:state];
 }
 
@@ -249,7 +253,7 @@ static BOOL _groupModifing = NO;
         animation.toValue = self.isSelected ? (id)self.icon.CGImage : (id)self.iconSelected.CGImage;
         [self.imageView.layer addAnimation:animation forKey:@"icon"];
     }
-    
+
     [super setSelected:selected];
     if (!self.isMultipleSelectionEnabled && selected) {
         [self deselectOtherButtons];
