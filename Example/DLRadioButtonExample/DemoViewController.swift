@@ -33,7 +33,7 @@ class DemoViewController : UIViewController {
             if (i > 1) {
                 // put icon on the right side
                 radioButton.isIconOnRight = true;
-                radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right;
+                radioButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.right;
             }
             otherButtons.append(radioButton);
             i += 1;
@@ -53,8 +53,8 @@ class DemoViewController : UIViewController {
         radioButton.setTitleColor(color, for: []);
         radioButton.iconColor = color;
         radioButton.indicatorColor = color;
-        radioButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left;
-        radioButton.addTarget(self, action: #selector(DemoViewController.logSelectedButton), for: UIControlEvents.touchUpInside);
+        radioButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left;
+        radioButton.addTarget(self, action: #selector(DemoViewController.logSelectedButton), for: UIControl.Event.touchUpInside);
         self.view.addSubview(radioButton);
         
         return radioButton;
