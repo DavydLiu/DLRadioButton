@@ -101,7 +101,8 @@ static BOOL _groupModifing = NO;
         if (isRightToLeftLayout) {
             self.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, marginWidth);
         } else {
-            self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
+            self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, -marginWidth);
+            self.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, marginWidth);
         }
     }
 }
