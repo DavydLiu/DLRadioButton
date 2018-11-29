@@ -99,7 +99,7 @@ static BOOL _groupModifing = NO;
         UIEdgeInsetsMake(0, -self.icon.size.width, 0, marginWidth + self.icon.size.width);
     } else {
         if (isRightToLeftLayout) {
-            self.imageEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
+            self.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, marginWidth);
         } else {
             self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
         }
