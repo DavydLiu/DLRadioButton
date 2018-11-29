@@ -156,6 +156,7 @@
 				ORGANIZATIONNAME = "Xingruo Liu";
 				TargetAttributes = {
 					D1BE39FE19A7D263004BD3F5 = {
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 0;
@@ -343,6 +344,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -367,6 +369,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liuxingruo.$(PRODUCT_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
