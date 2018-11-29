@@ -84,8 +84,7 @@ static BOOL _groupModifing = NO;
     }
     CGFloat marginWidth = self.marginWidth;
     BOOL isRightToLeftLayout = NO;
-
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0) {
+    if (@available(iOS 9.0, *)) {
         isRightToLeftLayout = [UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft;
         if(isRightToLeftLayout){
           self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
