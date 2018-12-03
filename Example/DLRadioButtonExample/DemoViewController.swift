@@ -52,6 +52,10 @@ class DemoViewController : UIViewController {
         radioButton.setTitle(title, for: []);
         radioButton.setTitleColor(color, for: []);
         radioButton.iconColor = color;
+
+//  iconBackgroundColor
+//        radioButton.iconBackgroundColor = UIColor.red;
+
         radioButton.indicatorColor = color;
         radioButton.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left;
         radioButton.addTarget(self, action: #selector(DemoViewController.logSelectedButton), for: UIControl.Event.touchUpInside);

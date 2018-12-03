@@ -108,6 +108,7 @@ static BOOL _groupModifing = NO;
 
 - (UIImage *)drawIconWithSelection:(BOOL)selected {
     UIColor *defaulColor = selected ? [self titleColorForState:UIControlStateSelected | UIControlStateHighlighted] : [self titleColorForState:UIControlStateNormal];
+    UIColor *defaultIconBackgroundColor = self.iconBackgroundColor ? self.iconBackgroundColor : UIColor.clearColor;
     UIColor *iconColor = self.iconColor ? self.iconColor : defaulColor;
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : defaulColor;
     CGFloat iconSize = self.iconSize;
@@ -121,12 +122,17 @@ static BOOL _groupModifing = NO;
 
     // draw icon
     UIBezierPath* iconPath;
+    
     CGRect iconRect = CGRectMake(iconStrokeWidth / 2, iconStrokeWidth / 2, iconSize - iconStrokeWidth, iconSize - iconStrokeWidth);
     if (self.isIconSquare) {
         iconPath = [UIBezierPath bezierPathWithRect:iconRect];
     } else {
         iconPath = [UIBezierPath bezierPathWithOvalInRect:iconRect];
     }
+
+    [defaultIconBackgroundColor setFill];
+    [iconPath fill];
+
     [iconColor setStroke];
     iconPath.lineWidth = iconStrokeWidth;
     [iconPath stroke];
