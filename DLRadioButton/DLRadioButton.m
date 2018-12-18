@@ -3,6 +3,7 @@
 static const CGFloat kDefaultIconSize = 15.0;
 static const CGFloat kDefaultMarginWidth = 5.0;
 static const CFTimeInterval kDefaultAnimationDuration = 0.3;
+
 static NSString * const kGeneratedIconName = @"Generated Icon";
 
 static BOOL _groupModifing = NO;
@@ -130,6 +131,10 @@ static BOOL _groupModifing = NO;
     [iconColor setStroke];
     iconPath.lineWidth = iconStrokeWidth;
     [iconPath stroke];
+    
+    [_iconBackgroundColor setFill];
+    [iconPath fill];
+    
     CGContextAddPath(context, iconPath.CGPath);
 
     // draw indicator
@@ -166,6 +171,7 @@ static BOOL _groupModifing = NO;
     _iconSize = kDefaultIconSize;
     _marginWidth = kDefaultMarginWidth;
     _animationDuration = kDefaultAnimationDuration;
+    _iconBackgroundColor = [UIColor whiteColor];
     [super addTarget:self action:@selector(touchUpInside) forControlEvents:UIControlEventTouchUpInside];
 }
 
