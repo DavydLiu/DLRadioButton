@@ -108,7 +108,14 @@ static BOOL _groupModifing = NO;
 
 - (UIImage *)drawIconWithSelection:(BOOL)selected {
     UIColor *defaulColor = selected ? [self titleColorForState:UIControlStateSelected | UIControlStateHighlighted] : [self titleColorForState:UIControlStateNormal];
-    UIColor *iconColor = self.iconColor ? self.iconColor : defaulColor;
+    
+    UIColor *iconColor;
+    if (selected) {
+        iconColor = self.iconSelectedColor ? self.iconSelectedColor : defaulColor;
+    } else {
+        iconColor = self.iconColor ? self.iconColor : defaulColor;
+    }
+    
     UIColor *indicatorColor = self.indicatorColor ? self.indicatorColor : defaulColor;
     CGFloat iconSize = self.iconSize;
     CGFloat iconStrokeWidth = self.iconStrokeWidth ? self.iconStrokeWidth : iconSize / 9;
