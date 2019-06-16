@@ -75,11 +75,11 @@ static BOOL _groupModifing = NO;
 
 #pragma mark - Helpers
 
-- (void)drawButton {
-    if (!self.icon || [self.icon.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
+- (void)layoutSubviews {
+    if (!self.icon) {
         self.icon = [self drawIconWithSelection:NO];
     }
-    if (!self.iconSelected || [self.iconSelected.accessibilityIdentifier isEqualToString:kGeneratedIconName]) {
+    if (!self.iconSelected) {
         self.iconSelected = [self drawIconWithSelection:YES];
     }
     CGFloat marginWidth = self.marginWidth;
@@ -104,6 +104,7 @@ static BOOL _groupModifing = NO;
             self.titleEdgeInsets = UIEdgeInsetsMake(0, marginWidth, 0, 0);
         }
     }
+    [super layoutSubviews];
 }
 
 - (UIImage *)drawIconWithSelection:(BOOL)selected {
@@ -115,9 +116,8 @@ static BOOL _groupModifing = NO;
     CGFloat indicatorSize = self.indicatorSize ? self.indicatorSize : iconSize * 0.5;
 
     CGRect rect = CGRectMake(0, 0, iconSize, iconSize);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    UIGraphicsPushContext(context);
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
 
     // draw icon
     UIBezierPath* iconPath;
@@ -147,7 +147,6 @@ static BOOL _groupModifing = NO;
     }
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsPopContext();
     UIGraphicsEndImageContext();
 
     image.accessibilityIdentifier = kGeneratedIconName;
@@ -173,7 +172,6 @@ static BOOL _groupModifing = NO;
 
 - (void)prepareForInterfaceBuilder {
     [self initRadioButton];
-    [self drawButton];
 }
 
 #pragma mark - DLRadiobutton
@@ -275,11 +273,6 @@ static BOOL _groupModifing = NO;
         [self initRadioButton];
     }
     return self;
-}
-
-- (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
-    [self drawButton];
 }
 
 @end
